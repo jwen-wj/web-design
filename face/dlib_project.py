@@ -1,6 +1,6 @@
 import dlib
-import cv2
 import glob
+import cv2
 import numpy as np
 
 class face_recognition:
