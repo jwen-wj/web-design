@@ -1,0 +1,46 @@
+#third{
+    margin-top: 30px;
+}
+#forth{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#typebox-container{
+    width: 200px;
+    flex-shrink: 0;
+}
+#typebox{
+    min-height: 100px;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0px 20px 20px;
+}
+.type-big{
+    border-bottom: 1px dashed #dbdbdb;
+    padding: 20px 0 10px;
+}
+.type-sm{
+    margin: 10px 20px 0;
+}
+#listbox{
+    min-height: 400px;
+    margin-left: 30px;
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    padding: 0px 50px 20px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+#listbox a{
+    text-decoration: none;
+    font-size: 14px;
+}
+.listbox-title{
+    padding: 25px 0 20px;
+}
+.littlestep{
+    font-weight: bold;
+}
+

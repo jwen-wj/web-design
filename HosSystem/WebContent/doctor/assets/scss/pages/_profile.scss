@@ -1,0 +1,178 @@
+.profile-page{
+    
+    .p-l-0.p-r-0{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+   .profile-header{
+        background: rgba(0, 0, 0, 0) url("../images/profile-bg.jpg") repeat scroll center center / cover ;
+        color: #fff;        
+        padding-bottom: 30px;
+        padding-top: 30px;
+        position: relative;
+        text-align: center;
+        border-radius:3px 3px 0 0;
+               
+        .profile_info{
+            .profile-image{
+                img{
+                    border-radius:50%;
+                }
+            }
+            
+            .social-icon{
+                a{
+                    margin:0 5px;
+                    
+                    i{
+                        color:#fff;
+                    }
+                }
+            }
+        }        
+   }
+   .profile-sub-header{
+        min-height: 60px;
+        width: 100%;
+        margin-bottom:15px;
+        
+        .box-list{
+            
+            ul {
+                display: inline-table;                
+                padding: 0;
+                margin:0;
+                table-layout: fixed;
+                width: 100%;
+                background:#f2f2f2;
+                
+                li{
+                    border-right: 1px solid #dedede;
+                    border-bottom:1px solid #dedede;
+                    display: table-cell;
+                    list-style: outside none none;
+
+                    a{
+                        display:block;
+                        padding:15px 0;
+                        color:#444;
+                        
+                        &:hover{
+                            text-decoration:none;
+                            color:#fff;
+                        }
+                        
+                        i{
+                            font-size:20px;
+                        }   
+                        
+                        p{
+                            margin:0;
+                        }
+                    }
+                    &:last-child{
+                        border-right:none;
+                    }                   
+                }
+            }
+        }
+    }
+    
+    #mypost{
+        .mypost-form{
+            margin-bottom:15px;
+            .form-group{
+                margin:0;
+            }
+        }
+        .post-box{
+            .post-img{
+                margin-bottom:15px;
+                max-height:300px;
+                overflow:hidden;
+            }
+        }
+    }
+    #timeline{
+        .timeline{
+            border-left: 1px solid #dedede;
+            font-size: 14px;
+            position: relative;
+            
+            .border-info {
+                border-color:$brand-info;
+            }
+            .border-warning {
+                border-color:$brand-warning;
+            }
+            .border-danger {
+                border-color:$brand-danger;
+            }
+            
+            .timeline-item{                
+                margin-bottom: 20px;
+                padding-bottom: 1px;
+                position: relative;                
+                
+                &:after{
+                    background-color: #fff;
+                    border-color: inherit;
+                    border-radius: 50%;
+                    border-style: solid;
+                    border-width: 2px;                  
+                    content: "";
+                    height: 11px;
+                    left: 0;
+                    margin-left: -6px;
+                    position: absolute;
+                    width: 11px;
+                    bottom: auto;
+                    clear: both;
+                    top:4px;
+
+                }
+                
+                .item-content{
+                    margin-left: 24px;
+                    margin-top: 0;
+                    
+                    p{
+                        font-weight:400;
+                        color:#444;
+                    }
+                }
+            }
+         }
+    }
+    
+    #usersettings{
+        .form-group{
+            margin-bottom:0;
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 414px) {
+    .profile-page{
+        .profile-sub-header{
+            .box-list{
+                li{
+                    a{
+                        padding: 20px 0 !important;
+                    }
+                    
+                    p{
+                        display:none;
+                    }                  
+                }
+            }
+        }
+    }
+}
+
+
+
+

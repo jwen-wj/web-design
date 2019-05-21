@@ -1,0 +1,48 @@
+body {
+  /*background-color: #333;*/
+}
+.text::before {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  margin: auto;
+  position: absolute;
+  width: 900px;
+  height: 100px;
+}
+.text span {
+  display: inline-block;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  width: 0.75em;
+}
+.text span:nth-child(1) {
+  color: #e61a00;
+}
+.text span:nth-child(2) {
+  color: #cc3300;
+}
+.text span:nth-child(3) {
+  color: #b34d00;
+}
+.text span:nth-child(4) {
+  color: #996600;
+}
+.text span:nth-child(5) {
+  color: olive;
+}
+.text span:nth-child(6) {
+  color: #669900;
+}
+.text span:nth-child(7) {
+  color: #4db300;
+}
+.text span:nth-child(8) {
+  color: #33cc00;
+}
+.text span:nth-child(9) {
+  color: #1ae600;
+}
+.text span:nth-child(10) {
+  color: lime;
+}

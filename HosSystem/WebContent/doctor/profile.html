@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<link href="assets/css/main.css" rel="stylesheet">
+<!-- Custom Css -->
+
+<!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader --> 
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">医生端管理</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">消息通知</li>
+                    <li class="body">
+                        <ul class="menu">
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-account-add"></i></div>
+                                <div class="menu-info">
+                                    <h4>十二分钟之前加入</h4>
+                                    <p> <i class="material-icons">访问时间</i>十四分钟之前</p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-cyan"><i class="zmdi zmdi-shopping-cart-plus"></i></div>
+                                <div class="menu-info">
+                                    <h4>药品销售</h4>
+                                    <p> <i class="material-icons">访问时间</i> 22 分钟之前 </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>蔡徐坤</b> 删除账号</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-orange"><i class="zmdi zmdi-edit"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>徐卓然</b>修改时间</h4>
+                                    <p> <i class="material-icons">访问时间</i> 2 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-blue-grey"><i class="zmdi zmdi-comment-alt-text"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 向你发送邮件</h4>
+                                    <p> <i class="material-icons">访问时间</i> 4 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-refresh-alt"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 更新状态</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-settings"></i></div>
+                                <div class="menu-info">
+                                    <h4>背景更新</h4>
+                                    <p> <i class="material-icons">访问时间</i> 昨天 </p>
+                                </div>
+                                </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">查看所有通知</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Notifications --> 
+            <!-- Tasks -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i><span class="label-count">9</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">任务清单</li>
+                    <li class="body">
+                        <ul class="menu tasks">
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务一当前完成  <small>32%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务二当前完成  <small>45%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务三当前完成 <small>54%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-purple-active" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务四当前完成 <small>65%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> </div>
+                                </div>
+                                </a> </li>                          
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">查看所有任务</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Tasks -->
+            <!--<li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>-->
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
+            <div class="admin-action-info"> <a href="../homepage.html"><span>返回首页</span></a>
+                <h3>萧然医生</h3>
+                <ul>
+                    <!--<li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
+                    <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>                    
+                    <!--<li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>-->
+                    <li><a data-placement="bottom" title="Full Screen" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-stats">
+                <h5>今日预约</h5>
+                <ul>
+                    <li><span>16<i>病人</i></span></li>
+                    <li><span>8<i>手术</i></span></li>
+                    <li><span>4<i>访客</i></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- #User Info --> 
+        <!-- Menu -->
+                <div class="menu">
+            <ul class="list">
+                <li class="header">主要信息</li>
+                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>首页</span></a></li>                                               
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>预约信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="doctor-schedule.html">排班信息</a></li>
+                       
+                    </ul>
+                </li>
+                <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>医生信息</span> </a>
+                    <ul class="ml-menu">
+                        <li class="active"><a href="doctors.html">所有医生</a></li>             
+                        <li><a href="profile.html">个人主页</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>病人信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="patients.html">所有病人</a></li>                 
+                    </ul>
+                </li>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar --> 
+    <!-- #END# Right Sidebar --> 
+</section>
+
+<section class="content profile-page">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 p-l-0 p-r-0">
+                <section class="boxs-simple">
+                    <div class="profile-header">
+                        <div class="profile_info">
+                            <div class="profile-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
+                            <h4 class="mb-0"><strong>萧然</strong> 医生</h4>
+                            <span class="text-muted col-white">内科</span>
+
+                        </div>
+                    </div>
+                    <div class="profile-sub-header">
+                        <div class="box-list">
+                            <ul class="text-center">
+                                <li> <a href="" class=""><i class="zmdi zmdi-email"></i>
+                                    <p>邮箱</p>
+                                    </a> </li>
+                                <li> <a href="#" class=""><i class="zmdi zmdi-camera"></i>
+                                    <p>相册</p>
+                                    </a> </li>
+                                <li> <a href="#"><i class="zmdi zmdi-attachment"></i>
+                                    <p>成就</p>
+                                    </a> </li>
+                                <li> <a href="#"><i class="zmdi zmdi-format-subject"></i>
+                                    <p>任务清单</p>
+                                    </a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>关于我</h2>
+                    </div>
+                    <div class="body">
+                        <p class="text-default">1986年7月至1989年7月湖南医科大学医学遗传学专业硕士研究生学习；1991年7月至1995年7月美国加州大学圣地亚哥分校分子病理学专业博士研究生学习；1995年8月至1996年7月在美国La Jolla癌症研究所做分子与细胞生物学博士后研究。1996年7月晋升副教授，1998年12月晋升教授，2001年聘为长江学者特聘教授。1998年12月任湖南医科大学医学遗传学国家重点实验室教授，副主任(兼)，2003年3月至2006年12月任中南大学医学遗传学国家重点实验室教授，主任（兼），2007年1月任中南大学医学遗传学国家重点实验室主任，2008年9月任中南大学校长助理，2010年12月任中南大学副校长。</p>
+                      
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2>今日工作任务进度</h2>
+                    </div>
+                    <div class="body">
+                        <ul class="list-unstyled">
+                            <li>
+                                <div>处理手术数目</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>处理预约数目</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> <span class="sr-only">20% Complete</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>处理病例数目</div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> <span class="sr-only">60% Complete (warning)</span> </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="card">
+                    <div class="body"> 
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mypost">我的动态</a></li>
+                 
+                        </ul>
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane in active" id="mypost">
+                                <div class="wrap-reset">
+                                    <div class="mypost-form">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" placeholder="今日动态...."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="post-toolbar-b"> <a href="#" tooltip="Add File" class="btn btn-raised btn-default btn-sm"><i class="zmdi zmdi-attachment"></i></a> <a href="#" tooltip="Add Image" class="btn btn-raised btn-default btn-sm"><i class="zmdi zmdi-camera"></i></a> <a href="#" class="pull-right btn btn-raised btn-success btn-sm" tooltip="Post it!">发表</a> </div>
+                                    </div>
+                                    <div class="mypost-list">
+                                        <div class="post-box"> <span class="text-muted text-small"><i class="zmdi zmdi-alarm"></i>三分钟前</span>
+                                            <div class="post-img"><img src="assets/images/puppy-1.jpg" class="img-fluid" alt /></div>
+                                            <div>
+                                                <h4 class="">注意十点，让你远离脑出血</h4>
+                                                <p class="mb-0">脑科疾病在我们生活中是一种很高发的疾病，特别是在老年人身上，脑科疾病更是挥之不去的阴影。夏季是脑血管病的高发季节，非外伤性脑实质内外血管破裂引起的出血约占全部脑血管病的20%～30%。</p>
+                                                <p> <a href="" class="btn btn-raised btn-info btn-sm"><i class="zmdi zmdi-favorite-outline"></i> Like (5) </a>  </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="post-box"> <span class="text-muted text-small"><i class="zmdi zmdi-alarm"></i>二十三分钟前</span>
+                                            <div class="post-img"><img src="assets/images/puppy-2.jpg" class="img-fluid" alt /></div>
+                                            <div>
+                                                <h4 class="">遵守医生底线，为病人的健康保驾护航</h4>
+                                                <p class="mb-0">为医之道，不应该看中利益，要坚守医生底线，治病愈人</p>
+                                                <p> <a href="" class="btn btn-raised btn-info btn-sm"><i class="zmdi zmdi-favorite-outline"></i> Like (25) </a> </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="post-box"> <span class="text-muted text-small"><i class="zmdi zmdi-alarm"></i>55分钟前</span>
+                                            <div class="post-img"><img src="assets/images/puppy-3.jpg" class="img-fluid" alt /></div>
+                                            <div>
+                                                <h4 class="">夏季吃这五种水果，能有效防范脑科疾病</h4>
+                                                <p class="mb-0">根据科学调查，西瓜，香蕉，榴莲有利于防范脑科疾病的发生。</p>
+                                                <p> <a href="" class="btn btn-raised btn-info btn-sm"><i class="zmdi zmdi-favorite-outline"></i> 喜欢 (10) </a> </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="text-center"> <a href="#" class="btn btn-raised btn-default">加载更多 …</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div role="tabpanel" class="tab-pane" id="usersettings">
+                               <div class="body">
+                                    <h2 class="card-inside-title">Security Settings</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control" placeholder="Username">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" placeholder="Current Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="password" class="form-control" placeholder="New Password">
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-raised btn-success btn-sm">Save Changes</button>
+                                        </div>
+                                    </div>
+                                    <h2 class="card-inside-title">Account Settings</h2>-->
+                                   
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="color-bg"></div>
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js --> 
+</body>
+</html>

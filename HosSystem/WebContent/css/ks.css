@@ -1,0 +1,98 @@
+#third {
+    margin-top:30px;
+}
+#hotnavi{
+    border-right: 1px solid #dbdbdb;
+}
+#hotbox{
+    min-height: 50px;
+    border: 1px solid #dbdbdb;
+    border-top: 0;
+    padding: 15px 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+.box-item{
+    width: 130px;
+    height: 10px;
+    margin: 10px;
+    text-align: center;
+}
+.a-normal:hover{
+    color: #5d91c9;
+}
+#forth{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+#typebox-container{
+    width: 200px;
+    flex-shrink: 0;
+}
+#typebox{
+    min-height: 100px;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    flex-flow: column nowrap;
+}
+#typebox a{
+    padding: 10px;
+}
+.type-arrow{
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+}
+.type_icon{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: bottom;
+}
+#listbox{
+    min-height: 400px;
+    margin-left: 20px;
+    width: 100%;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+}
+.listbox-part{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 15px 10px;
+}
+.part-title{
+    width: 150px;
+    text-align: center;
+    font-size: 15px;
+}
+.dashline{
+    height: 10px;
+    border-bottom: 1px dashed #dbdbdb;
+}
+.part-content {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 10px;
+}
+.content-item{
+    width: 153px;
+    height: 10px;
+    margin: 10px 10px 10px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

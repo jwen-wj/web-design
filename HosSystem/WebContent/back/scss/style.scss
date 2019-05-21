@@ -1,0 +1,44 @@
+@function lerp($a, $b, $t) {
+  @return ($a * (1 - $t)) + ($b * $t);
+}
+
+body {
+  background-color: #333;
+}
+
+.text {
+  margin: 0 0;
+  font-size: 90px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+  
+  &::before {
+    background-color: #555;
+    border-radius: 50%;
+    box-shadow: 0 2px 15px #222;
+    content: "";
+    display: block;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: -120px;
+    position: absolute;
+    width: 900px;
+    height: 100px;
+  }
+  
+  span {
+    display: inline-block;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 0.75em;
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        color: lerp(#ff0000, #00ff00, $i/10);
+      }
+    }
+  }
+}

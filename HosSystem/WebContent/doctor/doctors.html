@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<link href="assets/css/main.css" rel="stylesheet">
+<!-- Custom Css -->
+
+<!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+ <script type="text/javascript" src="assets/js/jquery.min.js" ></script>
+ 
+ 		<script>
+			// jQuery.getJSON( url [, data ] [, success ] )
+         $.getJSON("doctor.json", "", function(data) {
+         console.log(data);
+         $.each(data, function(i, item) {
+             var str="";
+               str+="<div class=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\">";
+                str+="<div class=\"card\">";
+                   str+="<div class=\"body\">";
+                     str+="<div class=\"member-card verified\">";                            
+                        str+="<div class=\"thumb-xl member-thumb\">";
+                            str+="<img src="+item["pic"]+" class=\"img-thumbnail rounded-circle\" alt=\"profile-image\">";                               
+                            str+="</div>";
+
+                            str+="<div class=\"\">";
+                            str+="<h4 class=\"m-b-5 m-t-20\">"+item["dname"]+"</h4>";
+                            str+="<p class=\"text-muted\">"+item["kid"]+"<span> <a href=\"#\" class=\"text-pink\">1285064424@qq.com</a> </span></p>";
+                            str+="</div>";
+
+                            str+="<p class=\"text-muted\">"+item["msg"]+"</p>";                           
+                            str+="<a href=\"profile.html\"  class=\"btn btn-raised btn-sm\">个人主页</a>";
+                          
+                        str+="</div>";
+                    str+="</div>";
+                str+="</div>";
+            str+="</div>";
+            console.log(str);
+             $("#main_doctor").append(str);      
+                  
+                  
+                  
+                  
+        })
+   });
+   </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader --> 
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<!-- #END# Overlay For Sidebars --> 
+<!-- #Float icon -->
+
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">医生端</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">消息通知</li>
+                    <li class="body">
+                        <ul class="menu">
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-account-add"></i></div>
+                                <div class="menu-info">
+                                    <h4>十二分钟之前加入</h4>
+                                    <p> <i class="material-icons">访问时间</i>十四分钟之前</p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-cyan"><i class="zmdi zmdi-shopping-cart-plus"></i></div>
+                                <div class="menu-info">
+                                    <h4>药品销售</h4>
+                                    <p> <i class="material-icons">访问时间</i> 22 分钟之前 </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>蔡徐坤</b> 删除账号</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-orange"><i class="zmdi zmdi-edit"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>徐卓然</b>修改时间</h4>
+                                    <p> <i class="material-icons">访问时间</i> 2 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-blue-grey"><i class="zmdi zmdi-comment-alt-text"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 向你发送邮件</h4>
+                                    <p> <i class="material-icons">访问时间</i> 4 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-refresh-alt"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 更新状态</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-settings"></i></div>
+                                <div class="menu-info">
+                                    <h4>背景更新</h4>
+                                    <p> <i class="material-icons">访问时间</i> 昨天 </p>
+                                </div>
+                                </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">查看所有通知</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Notifications --> 
+            <!-- Tasks -->
+            
+                   <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i><span class="label-count">9</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">任务清单</li>
+                    <li class="body">
+                        <ul class="menu tasks">
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务一当前完成  <small>32%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务二当前完成  <small>45%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务三当前完成 <small>54%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-purple-active" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务四当前完成 <small>65%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> </div>
+                                </div>
+                                </a> </li>                          
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- #END# Tasks -->
+           
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+         <div class="user-info">
+            <div class="admin-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
+            <div class="admin-action-info"><a href="../homepage.html"><span>返回首页</span></a>
+                <h3>萧然医生</h3>
+                <ul>
+                    <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>                    
+                    <!--<li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>-->
+                    <li><a data-placement="bottom" title="Full Screen" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-stats">
+                <h5>今日预约</h5>
+                <ul>
+                    <li><span>16<i>病人</i></span></li>
+                    <li><span>8<i>手术</i></span></li>
+                    <li><span>4<i>访客</i></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- #User Info --> 
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">主要信息</li>
+                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>首页</span></a></li>                                               
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>预约信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="doctor-schedule.html">排班信息</a></li>
+                    </ul>
+                </li>
+                <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>医生信息</span> </a>
+                    <ul class="ml-menu">
+                        <li class="active"><a href="doctors.html">所有医生</a></li>             
+                        <li><a href="profile.html">个人主页</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>病人信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="patients.html">所有病人</a></li>                 
+                    </ul>
+                </li>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar --> 
+    <!-- Right Sidebar -->
+
+    <!-- #END# Right Sidebar --> 
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>萧然医生</h2>
+            <small class="text-muted">欢迎你!</small>
+        </div>
+        <div class="row clearfix" id="main_doctor">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                            
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar1.jpg" class="img-thumbnail rounded-circle" alt="profile-image">                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">萧然</h4>
+                                <p class="text-muted">脑科<span> <a href="#" class="text-pink">1285064424@qq.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">手法高超，主治脑科疾病</p>                           
+                            <a href="profile.html"  class="btn btn-raised btn-sm">个人主页</a>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card">                            
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/3.jpg" class="img-thumbnail rounded-circle" alt="profile-image">                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">蔡某鲲</h4>
+                                <p class="text-muted">外科<span> <a href="#" class="text-pink">kunkun.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">手法细腻，内柔外刚</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                           
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/2.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">潘安</h4>
+                                <p class="text-muted">整形美容科<span> <a href="#" class="text-pink">panan.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">塑性鼻祖，技艺高超</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">                           
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/4.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">许三多</h4>
+                                <p class="text-muted">呼吸科<span> <a href="#" class="text-pink">xuduoduo.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">通鼻润喉，疏通全身</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/5.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">王美丽</h4>
+                                <p class="text-muted">手足科<span> <a href="#" class="text-pink">wanmeili.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">接骨专家，独一无二</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                            </div>
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">阿拉斯磊</h4>
+                                <p class="text-muted">内科<span> <a href="#" class="text-pink">alasilei.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">如切如磋，如琢如磨</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">凯丽</h4>
+                                <p class="text-muted">肠道科<span> <a href="#" class="text-pink">kaili.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">疏通肠胃，放松身心</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">欧莱雅</h4>
+                                <p class="text-muted">皮肤科<span> <a href="#" class="text-pink">oulaiya.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">三分钟，让你彻底告别皮肤疾病</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+               
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
+                                <p class="text-muted">Neurologist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
+                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar6.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
+                                <p class="text-muted">Neurologist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card verified">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar3.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                               
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
+                                <p class="text-muted">Dentist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                            <a href=""  class="btn btn-raised btn-sm">View Profile</a>
+   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card">
+                            <div class="thumb-xl member-thumb">
+                                <img src="assets/images/random-avatar4.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                                
+                            </div>
+
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">Kendra V. Alfaro</h4>
+                                <p class="text-muted">ENT Specialist<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
+                            </div>
+
+                            <p class="text-muted">795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
+                            <a href=""  class="btn btn-raised btn-sm">个人主页</a>
+               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="" class="btn btn-raised g-bg-cyan">医生列表</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="color-bg"></div>
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js --> 
+</body>
+</html>

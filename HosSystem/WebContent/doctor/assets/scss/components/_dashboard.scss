@@ -1,0 +1,131 @@
+﻿.stats-report{
+    margin-bottom: 20px;
+    
+    .stat-item {
+        display: inline-block;
+        padding-right: 15px;
+        
+        h5{
+            font-weight:300;
+            font-size:12px;
+            margin:0;
+        }
+        
+    }
+    
+}
+
+#home_payments{
+    .dataTables_filter{
+        text-align:right;
+    }
+    .dataTables_paginate{
+        text-align:right;
+    }
+    .pagination{
+        margin:0;
+    }
+}
+
+.basic-list{
+    padding:0;
+    margin:0;
+    li {
+        display: block;
+        padding: 15px 0px;
+        border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+        line-height: 27px;
+        
+        &:last-child{
+            border-bottom:none;
+        }
+    }
+}
+.country-state{
+    padding:0;
+    margin:0;
+    
+    list-style:none;
+    
+    .progress{
+        height: 7px;
+    }
+}
+.feeds{
+    padding:0;
+    margin:0;
+    
+    li {
+        list-style: none;
+        padding:10px 0;
+        display:block;
+        
+        > div {
+            width:38px;
+            height:38px;
+            margin-right: 5px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 100%;
+            
+            i{
+                line-height: 40px;
+            }
+        }
+        span {
+            float: right;
+            width: auto;
+            font-size: 12px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .home{
+        .nav-tabs{
+            li{
+                a{
+                    padding: 10px 15px;
+                    
+                    i{
+                        display:block;
+                        text-align: center;
+                     }
+                }
+            }
+        }
+    }
+    #home_dashboard{
+        .info-box-4{
+            margin-bottom:5px;
+        }
+    }
+    
+    .clearHeader{
+        .navbar-header{
+            margin-top: 5px;
+            position: relative;
+        }
+    }
+    
+    .cpu-usage{
+        .pull-right{
+            display:none;
+        }
+    }
+    .table-responsive-m{
+        overflow-x: auto;
+    }
+}
+@media only screen and (max-width:360px) {
+    .home{
+        .nav-tabs{
+            li{
+                a{
+                    padding: 10px 8px;
+                }
+            }
+        }
+    }
+}

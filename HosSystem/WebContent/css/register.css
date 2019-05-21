@@ -1,0 +1,95 @@
+﻿#third .navi{
+    margin-top:30px;
+}
+#step-text{
+    width: 590px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+}
+#step-img {
+    width: 489px;
+    height: 15px;
+    background: url(../images/register_tp.png) 0 0 no-repeat; /*0，16px， */
+}
+#form{
+    width:470px;
+    margin-top:30px;
+    padding-right:30px;
+}
+#form select{
+    overflow:hidden;
+    text-overflow:clip;
+    white-space:nowrap;
+}
+#address select{
+    width:104px;
+    padding:6px 0;
+}
+#codebtn, #validatebtn{
+    width:100%;
+}
+#submit{
+    width:157px;
+    height:43px;
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+    border-radius:0 0;
+    font-size:16px;
+}
+#webcam {
+    border: 1px solid #666666;
+    width: 320px;
+    height: 240px;
+}
+
+#photos {
+    border: 1px solid #666666;
+    width: 320px;
+    height: 240px;
+}
+.modal-box {
+    height: 550px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+#next{
+    width: 85px;
+}
+#resultbox span{
+    vertical-align: top;
+}
+#result_load{
+    color: #808080;
+}
+#result_ok{
+    color: #1d941d;
+}
+#result_no{
+    color: #981717;
+}
+#msg_icon{
+    display: none;
+    color: #41ff41;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

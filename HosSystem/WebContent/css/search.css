@@ -1,0 +1,115 @@
+﻿#third{
+    height:100px;
+    margin-top:20px;
+    padding:25px;
+    display: flex;
+}
+#forth{
+    margin-top:20px;
+    min-height: 400px;
+}
+.hosp-list-item{
+    height:200px;
+    border:1px solid #dbdbdb;
+    padding: 25px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.hosp-list-item:hover {
+    background-color: #F5FCFF;
+}
+.hosp-img {
+    width: 200px;
+    height: 150px;
+}
+.hosp-img img {
+    width: 100%;
+    height: 100%;
+}
+#hosp_map{
+    width:300px;
+    height:150px;
+    background:#d3d3d3;
+}
+.hosp-list-item + .hosp-list-item{
+    border-top:0;
+}
+.doctor-item {
+    height:320px;
+    padding: 15px 15px 30px;
+}
+.doctor-item-bottom{
+    height:100px;
+}
+
+.text-detail {
+    color: #808080;
+    font-size: 12px;
+}
+
+.text-detail-title {
+    color: #4e4e4e;
+    font-size: 15px;
+}
+.inputbox{
+    width: 250px;
+    display: flex;
+}
+.inputbox label{
+    line-height: 35px;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+#datebox{
+    width: 300px;
+}
+#timebox{
+    width: 200px;
+}
+.appointform{
+    padding: 20px 0;
+    width: 300px;
+    height: 280px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+.appointform .form-group{
+    margin-bottom: 0;
+}
+.img-container{
+    width: 150px;
+    height: 150px;
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+}
+#result_ok{
+    color: #1d941d;
+}
+#result_no{
+    color: #981717;
+}
+#nextbtn{
+    width: 85px;
+}
+#resultbox span{
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

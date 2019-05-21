@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="HosSystem:war exploded">
+    <output-path>D:/apache-tomcat-9.0.6/webapps/HosSystem</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HosSystem" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="HosSystem/web/Web" />
+    </root>
+  </artifact>
+</component>

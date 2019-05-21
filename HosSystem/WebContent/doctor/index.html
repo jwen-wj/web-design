@@ -1,0 +1,678 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<link href="assets/plugins/morrisjs/morris.css" rel="stylesheet" />
+<!-- Custom Css -->
+<link href="assets/css/main.css" rel="stylesheet">
+<!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+<style type="text/css">
+	#main_body{
+		width:100%;
+		height: 400px;
+		background-color:grey;
+		text-align:center;
+	}
+</style>
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-cyan">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader --> 
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">医生端管理</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">消息通知</li>
+                    <li class="body">
+                        <ul class="menu">
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-account-add"></i></div>
+                                <div class="menu-info">
+                                    <h4>十二分钟之前加入</h4>
+                                    <p> <i class="material-icons">访问时间</i>十四分钟之前</p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-cyan"><i class="zmdi zmdi-shopping-cart-plus"></i></div>
+                                <div class="menu-info">
+                                    <h4>药品销售</h4>
+                                    <p> <i class="material-icons">访问时间</i> 22 分钟之前 </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>蔡徐坤</b> 删除账号</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-orange"><i class="zmdi zmdi-edit"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>徐卓然</b>修改时间</h4>
+                                    <p> <i class="material-icons">访问时间</i> 2 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-blue-grey"><i class="zmdi zmdi-comment-alt-text"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 向你发送邮件</h4>
+                                    <p> <i class="material-icons">访问时间</i> 4 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-refresh-alt"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>乔丹</b> 更新状态</h4>
+                                    <p> <i class="material-icons">访问时间</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-settings"></i></div>
+                                <div class="menu-info">
+                                    <h4>背景更新</h4>
+                                    <p> <i class="material-icons">访问时间</i> 昨天 </p>
+                                </div>
+                                </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">查看所有通知</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Notifications --> 
+            <!-- Tasks -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i><span class="label-count">9</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">任务清单</li>
+                    <li class="body">
+                        <ul class="menu tasks">
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务一当前完成  <small>32%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务二当前完成  <small>45%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>任务三当前完成 <small>54%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-purple-active" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4> 任务四当前完成 <small>65%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> </div>
+                                </div>
+                                </a> </li>                          
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">查看所有任务</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Tasks -->
+            <!--<li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>-->
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
+            <div class="admin-action-info"> <a href="../homepage.html"><span>返回首页</span></a>
+                <h3>萧然医生</h3>
+                <ul>
+                 <!--   <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox.html"><i class="zmdi zmdi-email"></i></a></li>-->
+                    <li><a data-placement="bottom" title="Go to Profile" href="profile.html"><i class="zmdi zmdi-account"></i></a></li>                    
+                    <!--<li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>-->
+                    <li><a data-placement="bottom" title="Full Screen" href="sign-in.html" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-stats">
+                <h5>今日预约</h5>
+                <ul>
+                    <li><span>16<i>病人</i></span></li>
+                    <li><span>8<i>手术</i></span></li>
+                    <li><span>4<i>访客</i></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- #User Info --> 
+        <!-- Menu -->
+                <div class="menu">
+            <ul class="list">
+                <li class="header">主要信息</li>
+                <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>首页</span></a></li>                                               
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>预约信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="doctor-schedule.html">排班信息</a></li>
+                    </ul>
+                </li>
+                <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>医生信息</span> </a>
+                    <ul class="ml-menu">
+                        <li class="active"><a href="doctors.html">所有医生</a></li>             
+                        <li><a href="profile.html">个人主页</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>病人信息</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="patients.html">所有病人</a></li>                 
+                    </ul>
+                </li>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar --> 
+    <!-- Right Sidebar -->
+    
+    <!-- #END# Right Sidebar --> 
+</section>
+
+<section class="content home">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>首页</h2>
+           
+        </div>
+        
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-account col-blue"></i> </div>
+                    <div class="content">
+                        <div class="text">新病人</div>
+                        <div class="number">27</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-account col-green"></i> </div>
+                    <div class="content">
+                        <div class="text">重点病人</div>
+                        <div class="number">12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-bug col-blush"></i> </div>
+                    <div class="content">
+                        <div class="text">今天手术数量</div>
+                        <div class="number">5</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-balance col-cyan"></i> </div>
+                    <div class="content">
+                        <div class="text">今日预约数</div>
+                        <div class="number">30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>Hospital Survey</h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <canvas id="line_chart" height="70"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main_body"></div>
+        <div class="row clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>新病人数量 <small >比上个月多出18%</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        
+                        <div class="sparkline" data-type="line" data-spot-Radius="3" data-highlight-Spot-Color="rgb(63, 81, 181)" data-highlight-Line-Color="#222"
+                                 data-min-Spot-Color="rgb(233, 30, 99)" data-max-Spot-Color="rgb(63, 81, 181)" data-spot-Color="rgb(63, 81, 181, 0.7)"
+                                 data-offset="90" data-width="100%" data-height="100px" data-line-Width="1" data-line-Color="rgb(63, 81, 181, 0.7)"
+                                 data-fill-Color="rgba(63, 81, 181, 0.3)"> 6,1,3,3,6,3,2,2,8,2 </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>预约数目 <small>比上个月高出19%</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+           
+                        <div class="sparkline" data-type="line" data-spot-Radius="3" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#222"
+                                 data-min-Spot-Color="rgb(233, 30, 99)" data-max-Spot-Color="rgb(96, 125, 139)" data-spot-Color="rgb(96, 125, 139, 0.7)"
+                                 data-offset="90" data-width="100%" data-height="100px" data-line-Width="1" data-line-Color="rgb(96, 125, 139, 0.7)"
+                                 data-fill-Color="rgba(96, 125, 139, 0.3)"> 6,4,7,8,4,3,2,2,5,6,7,4,1,5,7,9,9,8,7,6 </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <div class="card">
+                    <div class="header">
+                        <h2>脑科疾病治疗<small>比上个月高出20%</small></h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);">Action</a></li>
+                                    <li><a href="javascript:void(0);">Another action</a></li>
+                                    <li><a href="javascript:void(0);">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        
+                        <div class="sparkline" data-type="line" data-spot-Radius="3" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#222"
+                                 data-min-Spot-Color="rgb(233, 30, 99)" data-max-Spot-Color="rgb(120, 184, 62)" data-spot-Color="rgb(120, 184, 62, 0.7)"
+                                 data-offset="90" data-width="100%" data-height="100px" data-line-Width="1" data-line-Color="rgb(120, 184, 62, 0.7)"
+                                 data-fill-Color="rgba(120, 184, 62, 0.3)"> 6,4,7,6,9,3,3,5,7,4,2,3,7,6 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>新病人信息 <small></small> </h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu float-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>姓名</th>
+                                <th>邮箱</th>
+                                <th>手机号</th>
+                                <th>所患疾病</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>王怡 </td>
+                                <td>1285362258@qq.com</td>
+                                <td>15867012981</td>
+                                <td><span class="label label-danger">脑中风</span> </td>
+                              </tr>
+                              <tr>
+                                <td>2</td>
+                                <td>何娅 </td>
+                                <td>heya.com</td>
+                                <td>15598301932 </td>
+                                <td><span class="label label-info">脑出血</span> </td>
+                              </tr>
+                              <tr>
+                                <td>3</td>
+                                <td>周迎 </td>
+                                <td>zhouying.com</td>
+                                <td>15910396492</td>
+                                <td><span class="label label-warning">脑梗塞</span> </td>
+                              </tr>
+                              <tr>
+                                <td>4</td>
+                                <td>万鸭梨</td>
+                                <td>wanyali.com</td>
+                                <td>15210591731 </td>
+                                <td><span class="label label-success">斯德哥尔摩症</span> </td>
+                              </tr>
+                              <tr>
+                                <td>5</td>
+                                <td>李力</td>
+                                <td>lili.com</td>
+                                <td>15930115910 </td>
+                                <td><span class="label label-info">老年迟钝</span> </td>
+                              </tr>
+                              <tr>
+                                <td>6</td>
+                                <td>彭佳 </td>
+                                <td>pengjia.com</td>
+                                <td>13867429182</td>
+                                <td><span class="label label-success">脑短路</span> </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</section>
+
+<div class="color-bg"></div>
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script> <!-- Sparkline Plugin Js -->
+<script src="assets/plugins/chartjs/Chart.bundle.min.js"></script> <!-- Chart Plugins Js --> 
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js --> 
+<script src="assets/js/pages/index.js"></script>
+<script src="assets/js/pages/charts/sparkline.min.js"></script>
+<script src="https://echarts.baidu.com/build/dist/echarts.js"></script>
+
+<script type="text/javascript">
+
+    require.config({
+
+        paths: {
+
+            echarts: 'https://echarts.baidu.com/build/dist'
+
+        }
+
+    });
+
+    // 使用
+
+    require
+
+    (
+
+            [
+
+                'echarts',
+
+                'echarts/chart/line' ,
+
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+
+            ],
+
+            function (ec)
+
+            {
+
+                // 基于准备好的dom，初始化echarts图表
+
+                var myChart = ec.init(document.getElementById('main_body'));
+
+                var option = {
+
+                    title : {
+
+                        text: '平均每五天医院接待病人数量',
+
+                        subtext: ''
+
+                    },
+
+                    tooltip : {
+
+                        trigger: 'axis'
+
+                    },
+
+                    legend: {
+
+                        data:['1', '2']
+
+                    },
+
+                    toolbox: {
+
+                        show : true,
+
+                        feature : {
+
+                            mark : {show: true},
+
+                            dataView : {show: true, readOnly: false},
+
+                            magicType : {show: true, type: ['line', 'bar']},
+
+                            restore : {show: true},
+
+                            saveAsImage : {show: true}
+
+                        }
+
+                    },
+
+                    dataZoom : {
+
+                        show : false,
+
+                        start : 0,
+
+                        end : 100
+
+                    },
+
+                    xAxis : [
+
+                        {
+
+                            type : 'category',
+
+                            boundaryGap : true,
+
+                            data : (function (){
+
+                                var now = new Date();
+
+                                var res = [];
+
+                                var len = 4;
+
+                                while (len--) {
+
+                                    res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+
+                                    now = new Date(now - 2000);
+
+                                }
+
+                                return res;
+
+                            })()
+
+                        },
+
+                        {
+
+                            type : 'category',
+
+                            boundaryGap : true,
+
+                            data : (function (){
+
+                                var res = [];
+
+                                var len = 200;
+
+                                while (len--) {
+
+                                    res.push(len + 1);
+
+                                }
+
+                                return res;
+
+                            })()
+
+                        }
+
+                    ],
+
+                    yAxis : [
+
+                        {
+
+                            type : 'value',
+
+                        },
+
+                        {
+
+                            type : 'value',
+
+                        }
+
+                    ],
+
+                    series : [
+
+                        {
+
+                            name:'aaa',
+
+                            type:'bar',
+
+                            xAxisIndex: 1,
+
+                            yAxisIndex: 1,
+
+                            data:(function (){
+
+                                var res = [];
+
+                                var len = 200;
+
+                                while (len--) {
+
+                                    res.push(Math.round(Math.random() * 1000));
+
+                                }
+
+                                return res;
+
+                            })()
+
+                        },
+
+                    ]
+
+                };;
+
+                myChart.setOption(option);
+
+                var timeTicket;
+
+                clearInterval(timeTicket);
+
+                timeTicket = setInterval(function (){
+
+                    // 动态数据接口 addData
+
+                    myChart.addData([
+
+                        [
+
+                            0,        // 系列索引
+
+                            {
+
+                                value:Math.round(Math.random() * 1000), // 新增数据
+
+                            },
+
+                            true,     // 新增数据是否从队列头部插入
+
+                            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+
+                        ],
+
+                    ]);
+
+                }, 2100);
+
+ 
+
+            }
+
+    );
+
+</script>
+
+
+
+
+</body>
+</html>

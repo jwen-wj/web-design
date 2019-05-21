@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function test(){
+            var dict = new Array();
+            dict["内科"] = new Array("呼吸内科");
+            dict["内科"].push("血管内科");
+            console.info(dict["内科"]);
+            console.info(dict["外科"] == null);
+
+            dict["外科"] = new Array("皮肤外科");
+            for(var key in dict){
+                console.info(dict[key]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="test()">测试</button>
+</body>
+</html>

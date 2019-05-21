@@ -1,0 +1,102 @@
+#third{
+    margin-top: 30px;
+}
+#doctorbox{
+    margin-top: 30px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+#doctor-img{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.img-box{
+    width: 120px;
+    height: 150px;
+}
+.img-box img{
+    width:100%;
+    height:100%;
+}
+#doctor-msg{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    padding: 30px;
+}
+#schedubox{
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#schedu-date{
+    flex-shrink: 0;
+}
+#schedu-timebox{
+    width: 100%;
+    height: 275px;
+}
+#schedu-timebox table{
+    height: 100%;
+}
+#schedu-timebox thead{
+    background: #60bff2;
+    color: white;
+}
+#schedu-timebox td,th{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+}
+#schedu-timebox tr{
+    height: 33%;
+}
+#forth{
+    margin-top:10px;
+}
+.appointform{
+    padding: 20px 0;
+    width: 300px;
+    height: 280px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+.appointform .form-group{
+    margin-bottom: 0;
+}
+.img-container{
+    width: 150px;
+    height: 150px;
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+}
+#result_ok{
+    color: #1d941d;
+}
+#result_no{
+    color: #981717;
+}
+#nextbtn{
+    width: 85px;
+}
+#resultbox span{
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+

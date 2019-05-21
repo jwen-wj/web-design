@@ -1,0 +1,19 @@
+{
+  "name": "AdminSwift-materialdesign",
+  "version": "1.0.4",
+  "description": "AdminSwift - Free admin panel that is based on Bootstrap 3.x with Material Design",
+  "main": "js/admin.js",
+  "authors": [
+    "Güray Yarar"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gurayyarar/AdminSwiftMaterialDesign",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,186 @@
+
+.email-page{
+    padding:10px 0 !important;
+    background: #fff !important;
+
+    .label{
+        padding: 0 5px;
+        @extend .m-r-5;
+    }
+
+    .tbox {
+        display: table;
+        width: 100%;
+        height: 100%;
+        border-spacing: 0;
+        table-layout: fixed;
+    }
+    
+    .tcol{
+        .nav-stacked{
+            
+            >li{
+                a{
+                    text-align:left;
+                    color: #3d4c5a;
+                    font-size:14px;
+                }
+            }
+        }
+        
+        #mail-folders{
+            li.active{
+                a{
+                    background:#ececec;
+                    color:#3d4c5a;
+                    box-shadow:none;
+                }
+            }
+            li{
+                margin:0;
+                a:hover{
+                    background:#ececec;
+                    color:#3d4c5a;
+                }
+            }
+        }
+        
+        #mail-labels{
+            li{
+                a{
+                    display:inline-block;
+                    text-align:left;
+                    color:#3d4c5a;
+                    font-size: 14px;
+                    font-weight: 400;
+                    
+                    i{
+                        font-size:16px;
+                        padding:0;
+                        display:inline-block;
+                        margin-right:5px;
+                    }
+                }
+            }
+        }
+        
+        #onlie-offline{
+            li{
+                a{
+                    i{
+                        display:inline-block;
+                        font-size:8px;
+                        padding:0;
+                        margin-right:5px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .mail_listing{
+        .table{
+            
+            thead{
+                .btn-sm{
+                    padding:10px;
+                }
+                .dropdown{
+					margin-bottom:0px;
+                }
+            }
+            tbody{
+                .unread{
+                    
+                    td {
+                        font-weight:700;
+                    }
+                }
+                
+                tr{
+                    
+                    td{
+                        vertical-align:middle;
+                        
+                        .checkbox{
+                            margin-bottom:0px;
+                            margin-top:7px;
+
+                            label{
+                                margin: 0;
+                            }
+                        }
+                        img{
+                            width:36px;
+                            border-radius:50%;
+                            margin-right:10px;
+                        }
+                        .label {
+                            float: left;                            
+                        }
+                        a{
+                            color:#555;
+                            
+                            &:hover{
+                                text-decoration:none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .custom{
+        padding:8px 10px;
+    }
+    
+    .mail-single{
+        
+        h3{
+            font-weight:400;
+        }
+        
+        .media{
+            margin-bottom: 0;
+        }
+        
+        
+        
+        .panel-heading{
+            background:#e6e6e6;
+            padding: 20px;
+        }
+    }
+}
+.thumb{
+    
+    display: inline-block;
+    
+    .thumb-header{
+        padding: 5px;
+    }
+    
+    .thumb-body{
+        padding: 5px;
+        box-shadow:0 1px 2px rgba(0,0,0,0.3);
+    }
+    img{
+        width:100%;
+    }
+}
+.thumb-sm {
+    width: 40px;
+}
+.thumb-md {
+    width: 60px;
+}
+.thumb-xxl {
+    width: 160px;
+}
+
+@media only screen and (min-width: 993px){
+    .collapse.collapse-sm, .collapse.collapse-xs {
+        display: block;
+    }
+}

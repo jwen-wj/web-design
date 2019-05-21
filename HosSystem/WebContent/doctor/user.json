@@ -1,0 +1,12 @@
+
+[{"sid":1,"did":2,"sdate":"2018-10-27","timetype":"上午","rescount":2,"price":120},
+{"sid":2,"did":3,"sdate":"2018-10-28","timetype":"上午","rescount":2,"price":130},
+{"sid":3,"did":4,"sdate":"2018-10-29","timetype":"下午","rescount":3,"price":110},
+{"sid":4,"did":5,"sdate":"2018-10-29","timetype":"下午","rescount":4,"price":140},
+{"sid":5,"did":6,"sdate":"2018-10-30","timetype":"上午","rescount":1,"price":150},
+{"sid":6,"did":7,"sdate":"2018-10-31","timetype":"上午","rescount":6,"price":160},
+{"sid":7,"did":6,"sdate":"2018-10-31","timetype":"上午","rescount":3,"price":150},
+{"sid":8,"did":6,"sdate":"2018-10-31","timetype":"上午","rescount":1,"price":150},
+{"sid":5,"did":6,"sdate":"2018-10-30","timetype":"上午","rescount":1,"price":150},
+{"sid":5,"did":6,"sdate":"2018-10-30","timetype":"上午","rescount":1,"price":150}
+]

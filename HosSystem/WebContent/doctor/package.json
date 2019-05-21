@@ -1,0 +1,21 @@
+{
+  "name": "Swift",
+  "version": "1.0.0",
+  "description": "Swift Admin App",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "keywords": [
+    "SaSS",
+    "Test"
+  ],
+  "author": "Theme Makker",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-sass": "^1.2.0"
+  }
+}

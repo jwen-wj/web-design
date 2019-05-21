@@ -1,0 +1,662 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>地图路线规划服务</title>
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=ede0a4e10fbbfd03e4f79de74ec37e10"></script>
+</head>
+<body onLoad="mapInit()">
+    <div id="iCenter"></div>
+    <div id="iControlbox" class="main">
+        <p class="title">您当前所在位置：<span id="lnglats">&nbsp;</span></p>
+        <!--<input type="text" id="orign" value="去哪儿" onfocus='this.value=""'>-->
+        <ul id="btns">
+            <li>
+                <button onclick="javascript:driving_route();">驾车路线规划</button>
+            </li> 
+            <li>
+                <button onclick="javascript:transfer_route();">公交路线规划</button>
+            </li>
+            <li>
+                <button onclick="javascript:walking_route();">步行路线规划</button>
+            </li>
+            <li>
+                <button onclick="javascript:clearMap();">清空地图</button>
+            </li>
+        </ul>
+    </div>
+    <div id="result"></div>
+</body>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=eae2cf3dbb4d8190b59341624f306052"></script>
+<script language="javascript">
+var mapObj;
+var route_text
+var steps;
+var polyline;
+var start_xy;
+var end_name;
+var start_name;
+var end_xy;
+var MDrive;
+var sx,sy;
+var btContent = new Array(); //结果表格数组
+var resultStr;//结果拼接string
+var resLine  = ''; //结果表格对象
+var marker_title;
+//初始化地图对象，加载地图
+function mapInit(){
+    mapObj = new AMap.Map("iCenter",{
+     center:new AMap.LngLat(112.61,26.89), //地图中心点
+     zoom:12,
+     resizeEnable: true
+    });
+    end_xy= new AMap.LngLat(112.601455,26.901607);
+    mapObj.setStatus({scrollWheel:true});
+    getend();
+    //定位当前位置
+      mapObj.plugin('AMap.Geolocation', function() {
+        var geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 2000,          //超过10秒后停止定位，默认：5s
+            buttonPosition:'RB',    //定位按钮的停靠位置
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+
+        });
+        mapObj.addControl(geolocation);
+        geolocation.getCurrentPosition(function(status,result){
+            if(status=='complete'){
+            	var x=result.position.lng;
+            	var y=result.position.lat;
+            	sx=x;
+            	sy=y;
+            	start_xy=new AMap.LngLat(sx,sy);
+                var address=result.formattedAddress;
+                start_name=address;
+                document.getElementById("lnglats").innerHTML=address+'('+x+','+y+')';
+            }else{
+            	var x=112.589633;
+                var y=26.896539;
+                start_xy=new AMap.LngLat(x,y);
+                start_name="南华大学红湘校区";
+                document.getElementById("lnglats").innerHTML=start_name+'('+x+','+y+')';
+                console.log(result);
+            }
+        });
+    });
+     AMap.event.addListener(mapObj,'click',getcity);
+  }
+
+function getcity(e){
+	AMap.plugin('AMap.Geocoder', function() {
+         var geocoder = new AMap.Geocoder({
+            city: '衡阳'
+         });
+ 
+  var lnglat = [e.lnglat.getLng(), e.lnglat.getLat()];
+  geocoder.getAddress(lnglat, function(status, result) {
+    if (status === 'complete' && result.info === 'OK') {
+    	 document.getElementById("lnglats").innerHTML = result.regeocode.formattedAddress+'('+e.lnglat.getLng()+ "," + e.lnglat.getLat()+')';
+         marker_title= result.regeocode.formattedAddress;
+              var mk = new AMap.Marker({
+		         map: mapObj,
+		         position: e.lnglat,
+		         animation:"AMAP_ANIMATION_DROP",
+		         title:marker_title
+	});
+    }
+  })
+ });
+}
+
+//function getname(ex,ey){
+//	    var name;
+//	 	AMap.plugin('AMap.Geocoder', function() {
+//       var geocoder = new AMap.Geocoder({
+//          city: '衡阳'
+//       });
+//  var lnglat = [ex, ey];
+//  geocoder.getAddress(lnglat, function(status, result) {
+//  if (status === 'complete' && result.info === 'OK') {
+//  	     
+//  	     end_name=result.regeocode.formattedAddress;
+//  	  
+//     }
+//  })
+//});
+
+//清空地图
+function clearMap(){
+    mapObj.clearMap();
+    document.getElementById("result").innerHTML = '&nbsp;';
+}
+
+function getend(){
+	AMap.plugin('AMap.Autocomplete',function(){
+		var auto= new AMap.Autocomplete({
+                  input:"orign",
+                  renderStyle:"newpc",
+                  autoFitView:true
+         });
+
+          var even= AMap.event.addListener(auto,'select',function(e){
+          	                end_name=e.poi.name;
+                      	    var lnglat=e.poi.location;
+                    end_xy= new AMap.LngLat(lnglat.lng,lnglat.lat)
+          });
+
+          
+	});
+}
+function driving_route() {
+    clearMap();
+    mapObj.plugin(["AMap.Driving"], function() {
+        var DrivingOption = {
+            //驾车策略，包括 LEAST_TIME，LEAST_FEE, LEAST_DISTANCE,REAL_TRAFFIC
+            policy: AMap.DrivingPolicy.LEAST_TIME
+        };
+        MDrive = new AMap.Driving(DrivingOption); //构造驾车导航类
+         if(end_xy!=null)MDrive.search(start_xy, end_xy);
+         else {
+         	 alert("温馨提示:请先输入目的地");
+         	 getend();
+         	}
+         AMap.event.addListener(MDrive, "complete", driving_routeCallBack); //返回导航查询结果
+    });
+}
+//导航结果展示
+function driving_routeCallBack(data) {
+    var routeS = data.routes;
+    if (routeS.length <= 0) {
+        document.getElementById("result").innerHTML = "未查找到任何结果!<br />建议：<br />1.请确保所有字词拼写正确。<br />2.尝试不同的关键字。<br />3.尝试更宽泛的关键字。";
+    }
+    else{
+        route_text="";
+        for(var v =0; v< routeS.length;v++){
+            //驾车步骤数
+            steps = routeS[v].steps
+            var route_count = steps.length;
+            //行车距离（米）
+            var distance = routeS[v].distance;
+            //拼接输出html
+            for(var i=0 ;i< steps.length;i++){
+                route_text += "<tr><td align=\"left\" onMouseover=\"driveDrawFoldline('" + i + "')\">" + i +"." +steps[i].instruction  + "</td></tr>";
+            }
+        }
+        //输出行车路线指示
+        route_text = "<table cellspacing=\"20px\" style=\"border:solid powderblue 1px; color:dimgray;\"><tr><td style=\"background:#e1e1e1;color:lightpink;font-size:20px\">路线</td></tr><tr><td><img src=\"http://webapi.amap.com/images/start.gif\" />&nbsp;&nbsp;"+start_name+"</td></tr>" + route_text + "<tr><td><img src=\"http://webapi.amap.com/images/end.gif\" />&nbsp;&nbsp;"+end_name+"</td></tr></table>";
+        document.getElementById("result").innerHTML = route_text;
+        drivingDrawLine();
+    }
+}
+//绘制驾车导航路线
+function drivingDrawLine(s) {
+    //起点、终点图标
+    var sicon = new AMap.Icon({
+        image:"img/flag.png",
+        size:new AMap.Size(44,44)
+    });
+     sicon.setImageSize(new AMap.Size(44,44));
+    var startmarker = new AMap.Marker({
+        icon : sicon, //复杂图标
+        visible : true,
+        position : start_xy,
+        map:mapObj,
+        offset : {
+           x : -16,
+            y : -40
+        }
+    });
+    var eicon = new AMap.Icon({
+        image:"img/flag.png",
+        size:new AMap.Size(44,44)
+    });
+    eicon.setImageSize(new AMap.Size(44,44));
+    var endmarker = new AMap.Marker({
+        icon : eicon, //复杂图标
+        visible : true,
+        position : end_xy,
+        map:mapObj,
+        offset : {
+            x : -16,
+            y : -40
+        }
+    });
+    //起点到路线的起点 路线的终点到终点 绘制无道路部分
+    var extra_path1 = new Array();
+    extra_path1.push(start_xy);
+    extra_path1.push(steps[0].path[0]);
+    var extra_line1 = new AMap.Polyline({
+        map: mapObj,
+        path: extra_path1,
+        strokeColor: "#9400D3",
+        strokeOpacity: 1,
+        strokeWeight: 4,
+        strokeStyle: "dashed",   //虚线
+        strokeDasharray: [10, 5]
+    });
+
+    var extra_path2 = new Array();
+    var path_xy = steps[(steps.length-1)].path;
+    extra_path2.push(end_xy);
+    extra_path2.push(path_xy[(path_xy.length-1)]);
+    var extra_line2 = new AMap.Polyline({
+        map: mapObj,
+        path: extra_path2,
+        strokeColor: "#9400D3",
+        strokeOpacity: 1,
+        strokeWeight: 4,
+        strokeStyle: "dashed",  //虚线
+        strokeDasharray: [10, 5]
+    });
+
+    var drawpath = new Array();
+    for(var s=0; s<steps.length; s++){
+        drawpath = steps[s].path;
+        var polyline = new AMap.Polyline({
+            map: mapObj,
+            path: drawpath,
+            strokeColor: "#9400D3",
+            strokeOpacity: 1,
+            strokeWeight: 4,
+            strokeDasharray: [10, 5]
+        });
+    }
+    mapObj.setFitView();
+}
+//绘制驾车导航路段
+function driveDrawFoldline(num){
+    var drawpath1 = new Array();
+    drawpath1 = steps[num].path;
+    if(polyline != null){
+        polyline.setMap(null);
+    }
+    polyline = new AMap.Polyline({
+            map: mapObj,
+            path: drawpath1,
+            strokeColor: "#FF3030",
+            strokeOpacity: 0.9,
+            strokeWeight: 4,
+            strokeDasharray: [10, 5]
+        });
+//  mapobj.setZoom(11);
+    mapObj.setFitView(polyline);
+}
+//公交导航
+function transfer_route() {
+    clearMap();
+    var trans;
+    //加载公交换乘插件
+    mapObj.plugin(["AMap.Transfer"], function() {
+        transOptions = {
+            city: '衡阳市',                            //公交城市
+            policy: AMap.TransferPolicy.LEAST_TIME //乘车策略
+        };
+        //构造公交换乘类
+        trans = new AMap.Transfer (transOptions);
+        //返回导航查询结果
+        AMap.event.addListener(trans, "complete", transCallBack);
+        //显示错误信息
+        AMap.event.addListener(trans, "error", function(e) {alert(e.info);});
+        //根据起、终点坐标查询公交换乘路线
+        if(end_xy!=null)trans.search(start_xy,end_xy);
+        else {
+        	alert("温馨提示:请先输入目的地");
+        	getend();
+        }
+    });
+}
+function transCallBack(data) {
+    var btCount       = data.count;
+    var btPlans       = data.plans;
+    var btOrigin      = data.origin;
+    var btDestination = data.destination;
+    var btTaxiCost    = data.taxi_cost;
+    var startName     = start_name; //可以使用地理编码解析起点和终点坐标
+    var endName       = end_name;
+    var BusArr        = [];
+    var WalkArr       = [];
+    var onbus         = new Array();
+    var onwalk        = new Array();
+    //结果输出用表格展现，输出表格头
+    var resTableHeader = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"><tr><td width=\"80\" style=\" border-left:1px solid #fff; background:#e1e1e1; color:lightpink; text-align:center\">　乘车方案</td><td width=\"80\" style=\" border-left:1px solid #fff; background:#e1e1e1;color:lightpink;\">　导航信息</td></tr>";
+    btContent.push(resTableHeader);
+    //遍历每种换乘方案
+    for (var i = 0; i < btPlans.length; i++) {
+        var btDistance  = btPlans[i].distance;
+        var btseg       = btPlans[i].segments;
+        var lineNameArr = new Array();
+        var resLine     = "";
+        var naviInfo    = '';
+        var lineName;
+        for(var j = 0; j < btseg.length; j++) {
+            naviInfo += btseg[j].instruction + "<br/>";
+            if(btseg[j].transit_mode =="WALK") {
+                if(i===0) {
+                    WalkArr.push(btseg[j].transit.path);
+                }
+            }
+            else {
+                lineName = btseg[j].transit.lines[0].name;
+                lineNameArr.push(lineName);
+                if(i===0) {
+                    BusArr.push(btseg[j].transit.path);
+                }
+            }
+        }
+        lineName = lineNameArr.join("-->");
+        drawBuschangeLine(btOrigin,btDestination,BusArr,WalkArr);
+        //结果输出用表格展现，输出表格内容
+        resLine = "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">"
+        + "<tr><td width=\"80\" rowspan=\"1\" class=\"td_class\"  style=\"text-align:center;\">"+ lineName +"</td><td width=\"80\" class=\"td_class\">"
+        + Getdistance(btDistance) + "</td></tr>" + "<tr><td width=\"80\" class=\"change_blue\" ></td><td width=\"80\"><img src=\"http://webapi.amap.com/images/start.gif\" /> <b>起点</b> " + startName + "</td></tr>" + "<tr><td width=\"80\" class=\"change_blue\"></td><td width=\"80\" class=\"change_blue\">"+ naviInfo +"</td></tr>"+ "<tr><td width=\"80\" class=\"change_blue\" ></td><td width=\"80\"><img src=\"http://webapi.amap.com/images/end.gif\" /> <b>终点</b> " + endName + "</td></tr>";
+        btContent.push(resLine);
+     }
+    resultStr = btContent.join("");
+     //写到result这个div
+    document.getElementById("result").innerHTML = resultStr;
+    //取出需要加换乘、步行图标的位置，这里仅画出第一个换乘方案
+    var sinseg = btPlans[0].segments;
+    for(var a in sinseg) {
+        if(sinseg[a].transit_mode =="WALK") {
+            onwalk.push(sinseg[a].transit.origin);
+        }
+        else {
+            onbus.push(sinseg[a].transit.on_station.location);
+        }
+    }
+    addMarker(onbus);
+//  mapobj.setZoom(11);
+    mapObj.setFitView();
+}
+//距离，米换算为千米
+function Getdistance(len) {
+    if (len <= 1000) {
+        var s = len;
+        return s + "米";
+    } else {
+        var s = Math.round(len / 1000);
+        return "约" + s + "公里";
+    }
+}
+//绘制路线，仅第一条
+function drawBuschangeLine(startPot,endPot,BusArr,WalkArr) {
+    //自定义起点，终点图标
+     var sicon = new AMap.Icon({
+        image: "img/flag.png",
+        size: new AMap.Size(44,44)
+    });
+     var eicon = new AMap.Icon({
+        image: "img/flag.png",
+        size: new AMap.Size(44,44)
+    });
+    //绘制起点，终点
+    var stmarker = new AMap.Marker({
+        map:mapObj,
+        position:new AMap.LngLat(startPot.lng,startPot.lat), //基点位置
+        icon:sicon, //复杂图标
+        offset:{x:-16,y:-40} //相对于基点的位置
+    });
+    var endmarker = new AMap.Marker({
+        map:mapObj,
+        position:new AMap.LngLat(endPot.lng,endPot.lat), //基点位置
+        icon:eicon, //复杂图标
+        offset:{x:16,y:-16} //相对于基点的位置
+    });
+    //绘制乘车的路线
+    for(var j in BusArr) {
+        busPolyline = new AMap.Polyline({
+            map:mapObj,
+            path:BusArr[j],
+            strokeColor:"#005cb5",//线颜色
+            strokeOpacity:1,//线透明度
+            strokeWeight:6//线宽
+        });
+    }
+    //绘制步行的路线
+    for (var i in WalkArr) {
+        walkPolyline = new AMap.Polyline({
+            map:mapObj,
+            path:WalkArr[i],
+            strokeColor : "#6EB034", //线颜色
+            strokeOpacity : 1, //线透明度
+            strokeWeight : 6//线宽
+        });
+    }
+
+}
+function addMarker(busmar) {
+    for (var i = 0; i < busmar.length; i++) {
+        var busmarker = new AMap.Marker({
+            icon : new AMap.Icon({
+                image: "img/flag.png",
+                size: new AMap.Size(44, 44),
+                imageOffset: new AMap.Pixel(-33, -3)
+            }),
+            position : busmar[i],
+            offset : {
+                x : -25,
+                y : -25
+            },
+            map:mapObj
+        });
+    }
+}
+function lineSearch_Callback(data) {
+    var lineArr  = data.lineInfo;
+    var lineNum  = data.lineInfo.length;
+    if(lineNum == 0) {
+        resLine = data.info;
+    }
+    else {
+        resLine += "<div id=\"divid" + i + "\"><table>";
+        for(var i = 0; i < lineNum; i++) {
+            var lineName = lineArr[i].name;
+            var lineCity = lineArr[i].city;
+            var distance = lineArr[i].distance;
+            var company  = lineArr[i].company;
+            var stime    = lineArr[i].stime;
+            var etime    = lineArr[i].etime;
+            var pathArr  = lineArr[i].path;
+            var stops    = lineArr[i].via_stops;
+            var startPot = stops[0].location;
+            var endPot   = stops[stops.length-1].location;
+            //结果输出用DIV展现，输出内容
+            resLine += "<tr><td><h3><font color=\"#00a6ac\">" + lineName + "</font></h3></td></tr>";
+            resLine += "<tr><td>首末车时间：" + stime.substring(0, 2) + ":" + stime.substring(2, 4) + '-' + etime.substring(0, 2) + ":" + etime.substring(2, 4) + "；" + "全长：" + distance + "公里;" + "所属公司：" + company+"</td></tr>";
+           //绘制第一条路线
+            if(i==0) drawbusLine(startPot,endPot,pathArr);
+        }
+        resLine += "</table></div>"
+        document.getElementById('result').innerHTML = resLine;
+    }
+}
+//绘制路线
+function drawbusLine(startPot,endPot,BusArr) {
+    //自定义起点，终点图标
+     var sicon = new AMap.Icon({
+        image: "img/flag.png",
+        size: new AMap.Size(44,44)
+    });
+    sicon.setImageSize(new AMap.Size(44,44));
+     var eicon = new AMap.Icon({
+        image: "img/flag.png",
+        size: new AMap.Size(44,44)
+    });
+    ecion.setImageSize(new AMap.Size(44,44));
+    //绘制起点，终点
+    var stmarker = new AMap.Marker({
+        map:mapObj,
+        position:new AMap.LngLat(startPot.lng,startPot.lat), //基点位置
+        icon:sicon, //复杂图标
+        offset:{x:-16,y:-34}, //相对于基点的位置
+        zIndex:10
+    });
+    var endmarker = new AMap.Marker({
+        map:mapObj,
+        position:new AMap.LngLat(endPot.lng,endPot.lat), //基点位置
+        icon:eicon, //复杂图标
+        offset:{x:-16,y:-34}, //相对于基点的位置
+        zIndex:10
+    });
+    //绘制乘车的路线
+    busPolyline = new AMap.Polyline({
+        map:mapObj,
+        path:BusArr,
+        strokeColor:"#005cb5",//线颜色
+        strokeOpacity:1,//线透明度
+        strokeWeight:6//线宽
+    });
+//  mapobj.setZoom(11);
+    mapObj.setFitView();
+}
+
+function stationSearch_CallBack(searchResult) {
+    clearMap();
+    var resultStr    = ""; //结果拼接String
+    var resultString = searchResult.info;
+    var stationArr   = searchResult.stationInfo;
+    var searchNum    = stationArr.length;
+    var iMarker    = searchResult.location;
+
+    if(searchNum > 0) {
+        resultStr += "<div id=\"divid" + i + "\"><table>";
+        for(var i=0; i<searchNum; i++) {
+            //结果输出用表格展现
+            resultStr += "<tr><td><h3><font color=\"#00a6ac\">" + stationArr[i].name + "</font></h3></td></tr>";
+
+            resultStr += "<tr><td>途径该站点的公交线路:</td></tr><tr><td>";
+            var stationBusArr = stationArr[i].buslines;
+            for(var j =0; j<stationBusArr.length; j++) {
+                resultStr += stationBusArr[j].name + "<br/>";
+            }
+        }
+        resultStr += "</td></tr></table></div>"
+        document.getElementById("result").innerHTML = resultStr;
+
+        var stmarker = new AMap.Marker({
+            map:mapObj,
+            position:iMarker
+        });
+    }
+    else {
+        document.getElementById("result").innerHTML = resultString;
+    }
+}
+//步行导航
+function walking_route() {
+    var MWalk;
+    mapObj.plugin(["AMap.Walking"], function() {
+        MWalk = new AMap.Walking(); //构造路线导航类
+        AMap.event.addListener(MWalk, "complete", walk_routeCallBack); //返回导航查询结果
+        if(end_xy!=null)MWalk.search(start_xy, end_xy); //根据起终点坐标规划步行路线
+        else {
+        	alert("温馨提示:请先输入目的地");
+        	getend();
+        }
+    });
+}
+//导航结果展示
+function walk_routeCallBack(data) {
+	clearMap();
+    var routeS = data.routes;
+        if (routeS.length <= 0) {
+            document.getElementById("result").innerHTML = "未查找到任何结果!<br />建议：<br />1.请确保所有字词拼写正确。<br />2.尝试不同的关键字。<br />3.尝试更宽泛的关键字。";
+        }
+        else {
+            route_text="";
+            for(var v =0; v< routeS.length;v++){
+                //步行导航路段数
+                steps = routeS[v].steps;
+                var route_count = steps.length;
+                //步行距离（米）
+                var distance = routeS[v].distance;
+                //拼接输出html
+                for(var i=0 ;i< steps.length;i++) {
+                    route_text += "<tr><td align=\"left\" onMouseover=\"walkingDrawSeg('" + i + "')\">" + i +"." +steps[i].instruction  + "</td></tr>";
+                }
+            }
+            //输出步行路线指示
+            route_text = "<table cellspacing=\"5 px\" ><tr><td style=\"background:#e1e1e1; color:lightpink;font-size:20px;\">路线</td></tr><tr class=\"td_one\"><td><img src=\"http://webapi.amap.com/images/start.gif\" />&nbsp;&nbsp;"+start_name+"</td></tr>" + route_text + "<tr><td><img src=\"http://webapi.amap.com/images/end.gif\" />&nbsp;&nbsp;"+end_name+"</td></tr></table>";
+            document.getElementById("result").innerHTML = route_text;
+            walkingDrawLine();
+        }
+}
+//绘制步行导航路线
+function walkingDrawLine() {
+    //起点、终点图标
+    var sicon = new AMap.Icon({
+        image: "img/flag.png",
+        size:new AMap.Size(44,44)
+    });
+     sicon.setImageSize(new AMap.Size(44,44));
+    var startmarker = new AMap.Marker({
+        icon : sicon, //复杂图标
+        visible : true,
+        position : start_xy,
+        map:mapObj,
+        offset : {
+            x : -16,
+            y : -40
+        }
+    });
+    var eicon = new AMap.Icon({
+        image: "img/flag.png",
+        size:new AMap.Size(44,44)
+    });
+//  eicon.setImageSize(new AMap.Size(44,44));
+    eicon.setImageSize(new AMap.Size(44,44));
+    var endmarker = new AMap.Marker({
+        icon : eicon, //复杂图标
+        visible : true,
+        position : end_xy,
+        map:mapObj,
+        offset : {
+            x : -16,
+            y : -40
+        }
+    });
+    //起点到路线的起点 路线的终点到终点 绘制无道路部分
+    var extra_path1 = new Array();
+    extra_path1.push(start_xy);
+    extra_path1.push(steps[0].path[0]);
+    var extra_line1 = new AMap.Polyline({
+        map: mapObj,
+        path: extra_path1,
+        strokeColor: "#9400D3",
+        strokeOpacity: 1,
+        strokeWeight: 4,
+        strokeStyle: "dashed",
+        strokeDasharray: [10, 5]
+    });
+
+    var extra_path2 = new Array();
+    var path_xy = steps[(steps.length-1)].path;
+    extra_path2.push(end_xy);
+    extra_path2.push(path_xy[(path_xy.length-1)]);
+    var extra_line2 = new AMap.Polyline({
+        map: mapObj,
+        path: extra_path2,
+        strokeColor: "#9400D3",
+        strokeOpacity: 1,
+        strokeWeight: 4,
+        strokeStyle: "dashed",
+        strokeDasharray: [10, 5]
+    });
+
+    for(var s=0; s<steps.length; s++) {
+        var drawpath = steps[s].path;
+        var polyline = new AMap.Polyline({
+            map: mapObj,
+            path: drawpath,
+            strokeColor: "#9400D3",
+            strokeOpacity: 1,
+            strokeWeight: 4
+        });
+    }
+//  mapobj.setZoom(11);
+    mapObj.setFitView();
+}
+</script>
+</html>

@@ -1,0 +1,50 @@
+﻿.patients{
+    .all-patients{
+        .m-b-0{
+            margin-bottom:0 !important;
+        }
+        
+        .p-profile-pix{
+            display:inline-block;
+        }
+        
+        h5{
+            .edit{
+                float:right;
+            }
+        }
+    }
+}
+.profile-page{
+    #report{
+         
+        .progress{
+            height: 5px;
+        }
+        ul{
+            li:last-child{
+                .progress{
+                    margin-bottom:0;
+                }
+            }
+        }
+        
+        .dis{
+            padding-left:15px;
+        }
+    }
+    
+    #report-chart{
+        .stats-row{
+            margin-bottom: 20px;
+            .stat-item {
+                display: inline-block;
+                padding-right: 15px;
+            }
+        }
+    }
+    .patient-profile{
+        
+    }
+    
+}

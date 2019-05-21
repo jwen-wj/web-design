@@ -1,0 +1,19 @@
+﻿.pager {
+    padding: 0;
+    list-style: none;
+    
+    li {
+
+        > a {
+            @include border-radius(0);
+            border: none;
+            background-color: transparent;
+            font-weight: bold;
+        }
+
+        a:focus,
+        a:active {
+            background-color: transparent;
+        }
+    }
+}

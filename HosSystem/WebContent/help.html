@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>预约挂号平台</title>
+    <script src="js/JQuery.js"></script>
+    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/color.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+    <link href="css/help.css" rel="stylesheet" />
+    <script src="js/jquery.goup.min.js"></script>
+    <script src="js/help.js"></script>
+    <script src="js/top.js"></script>
+</head>
+<body>
+    <div id="third" class="width-main center">
+        <div class="navi bg-lightgray">
+            <div class="bg-darkblue navi-item text-white text-center">帮助中心</div>
+        </div>
+    </div>
+    <div id="forth" class="width-main center">
+        <div id="typebox-container">
+            <div id="typebox">
+                <div class="type-big text-bigger text-darkgray"><span class="glyphicon glyphicon-unchecked"></span> 常见问题</div>
+                <a href="#listbox-t1" class="type-sm text-gray a-normal">常见问题</a>
+                <div class="type-big text-bigger text-darkgray"><span class="glyphicon glyphicon-unchecked"></span> 预约指南</div>
+                <a href="#listbox-t2" class="type-sm text-gray a-normal">预约需知</a>
+                <a href="#listbox-t3" class="type-sm text-gray a-normal">挂号流程</a>
+            </div>
+        </div>
+        <div id="listbox">
+            <h4 id="listbox-t1" class="text-center listbox-title">常见问题</h4>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                1、统一平台有几种预约方式？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            统一平台有网上预约https://www.bestdoublelin.com:8443/HosSystem/homepage.html的方式。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                2、我是第一次使用这个平台预约，是否能够不注册就使用预约挂号?
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            首次使用预约挂号，需要进行注册才能够使用预约挂号服务，可登录统一平台网站https://www.bestdoublelin.com:8443/HosSystem/homepage.html注册。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                3、要患者的姓名和身份证件有什么用？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            患者身份证件和患者信息是取号就诊的必要凭证。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h4">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c4" aria-expanded="false" aria-controls="collapseThree">
+                                4、患者注册信息填写有误，是否会影响就诊？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h4">
+                        <div class="panel-body">
+                            没有统一平台支持的有效证件的用户，目前不能通过统一平台网站注册预约，只能到医院现场挂号就诊。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h5">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c5" aria-expanded="false" aria-controls="collapseThree">
+                                5、我登录和不登录统一平台有什么区别吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h5">
+                        <div class="panel-body">
+                            ① 对于没有身份证号的患儿，可以用统一平台支持的其它有效证件预约挂号，或者直接去现场儿童急门诊挂号就诊。② 对于已经申报户口但还未办理身份证的患儿，可凭身份证号在统一平台上正常注册预约，就诊时凭带有身份证号码相关联的有效证件（如户口本）取号就诊，或者直接去现场儿童急门诊挂号就诊
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h6">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c6" aria-expanded="false" aria-controls="collapseThree">
+                                6、网站预约信息有误怎么办？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h6">
+                        <div class="panel-body">
+                            网络注册及预约需实名制患者信息，就诊当天也是需要凭患者真实有效证件取号，若信息不正确将影响当天取号就诊。所以建议用户发现注册信息有误时，请尽快提交申请处理，如果您已经预约，建议您在预约取消截止时限内，先取消预约订单，再重新注册账号。或者走账号申诉流程让工作人员协助修改。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h7">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c7" aria-expanded="false" aria-controls="collapseThree">
+                                7、网站上显示有号，可填完资料提交时却告诉我没号了？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h7">
+                        <div class="panel-body">
+                            不能直接修改，要解决此类问题，只能把原有的预约号在规定取消时限内取消掉，然后请点击
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h8">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c8" aria-expanded="false" aria-controls="collapseThree">
+                                8、为什么找不到我要挂的专家号？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h8">
+                        <div class="panel-body">
+                            按流程填写信息，我们会在5个工作日内处理完成，申诉结果会以短信形式发送给申诉信息中的邮箱号
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h9">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c9" aria-expanded="false" aria-controls="collapseThree">
+                                9、为什么我无法预约？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h9">
+                        <div class="panel-body">
+                            只有注册并成功登录后，您才可以查看到具体的班次和号源信息，根据个人情况选择合 适的班次进行预约。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h10">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c10" aria-expanded="false" aria-controls="collapseThree">
+                                10、预约挂号统一平台什么时候放号，24小时开放么？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h10">
+                        <div class="panel-body">
+                            遇到这种情况，是因为有很多用户在同时预约此号，该号源在您点击"预约确认"之前已被其他用户先预约成功导致的，您可选择其他医生或者改期预约。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h11">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c11" aria-expanded="false" aria-controls="collapseThree">
+                                11、节假日及周六日能预约挂号吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h11">
+                        <div class="panel-body">
+                            根据卫生和计划生育委员会医改新政策按医院、科室、职称、专业不点名预约。对于取消点名挂号，我们强调的是目前北京市实行的取消点名挂号只是针对首诊病人，也就是"首诊取消点名挂号"。因为对于第一次就诊的患者，由于对就诊流程和医生诊疗特点不太熟悉，往往会盲目选择医生和扎堆儿挑专家，从而加剧了看专家难。而对于需要定期复诊的老病号，是由首诊医生直接为患者预约下次就诊号源，也就是复诊可以点名，这个点名过程是由接诊专家为患者复诊预约来实现的，从而确保患者就医的连续性。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h12">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c12" aria-expanded="false" aria-controls="collapseThree">
+                                12、预约挂号平台网站预约是否收费？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h12">
+                        <div class="panel-body">
+                            依据政府新政，预约挂号平台为用户提供免费注册预约，不收取任何费用。各家医院仅收取与医生职称相对应的医事服务费，如与您预约时不符，则以当日医院挂号窗口为准。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h13">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c13" aria-expanded="false" aria-controls="collapseThree">
+                                13、为什么我老是收不到邮箱验证信息？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h13">
+                        <div class="panel-body">
+                            原因一：请确认是否已正常注册/登录。<br>原因二：请确认您是否按网上预约流程正常操作。<br>原因三：请确认您是否已经违反统一平台规定（恶意挂号和取消、多次无故不取号就诊也不取消、贩卖号源行为等），目前已进入黑名单或者是爽约用户，该类用户将被限制使用预约挂号服务。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h14">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c14" aria-expanded="false" aria-controls="collapseThree">
+                                14、如何知道已预约成功？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h14">
+                        <div class="panel-body">
+                            确认预约后，就诊人的预约注册手机会同步收到"预约成功邮箱信息"以示成功，同时您可以通过"个人中心>预约管理>当前预约"查询预约订单信息状态。<br>预约成功信息内容如下："xxx您好，您已成功预约**医院**科室***医，您的顺序号xx，预约识别码[xxxxxxxx],就诊日期是**年**月**日（上午/下午），取号时间：xx点xx分取号，取号地点：xxxxxxxx，114/116114转6。" <br>由于"预约成功信息"包括"订单详情"、"取号时间"、"取号地点"等信息，内容较多，系统将根据内容长短，自动分为1至2或3条发送至您的手机，收到其中的任意一条，都代表您已预约成功。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h15">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c15" aria-expanded="false" aria-controls="collapseThree">
+                                15、预约挂号成功后，可以改号吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h15">
+                        <div class="panel-body">
+                            用户应在预约前确定好自己想挂的科室或专家，已成功预约的订单若需要更改，可在规定的取消时限内先做取消预约处理，再重新预约
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h16">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c16" aria-expanded="false" aria-controls="collapseThree">
+                                16、预约号能转让吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h16">
+                        <div class="panel-body">
+                            不能，预约挂号实行实名制，预约号只供本人使用。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h17">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c17" aria-expanded="false" aria-controls="collapseThree">
+                                17、预约挂号成功后，临时去不了，能否取消预约？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h17">
+                        <div class="panel-body">
+                            用户在医院规定的取消时限内可以取消预约号，超过退号截止时间系统将限制用户退号，一般截止时间为就诊日期的前一天下午15:00点，就诊当天不能取消当日预约号。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h18">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c18" aria-expanded="false" aria-controls="collapseThree">
+                                18、挂号成功后但是医师临时停诊了怎么办？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h18">
+                        <div class="panel-body">
+                            临时停诊是指医生可能因为临时的抢救、保障任务等特殊原因而临时无法出诊的情况，因此不可避免，请患者谅解和配合。 <br>遇到此类情况，我们会通过短信或者电话通知到您，您可以选择直接取消此预约或者配合更改就诊日期或更换同科室其他医生，请您保持电话畅通。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h19">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c19" aria-expanded="false" aria-controls="collapseThree">
+                                19、预约挂号统一平台对于预约次数有限制么？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h19">
+                        <div class="panel-body">
+                            为了防止号贩子倒号行为，满足绝大多数百姓的最大利益和公平性，统一平台采取了预约挂号限制。同一患者实名（有效证件号）在同一就诊日、同一医院、同一科室只能预约1次；在同一就诊日的预约总量不可超过2次；在七日内的预约总量不可超过3次；在三个月内预约总量不可超过5次。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h20">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c20" aria-expanded="false" aria-controls="collapseThree">
+                                20、预约成功后，到医院还需要交费吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h20">
+                        <div class="panel-body">
+                            由医院收取相应的医事服务费。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h21">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c21" aria-expanded="false" aria-controls="collapseThree">
+                                21、预约成功后，去医院需要排队吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h21">
+                        <div class="panel-body">
+                            预约成功后，您需要在规定时间内排队取号。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h22">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c22" aria-expanded="false" aria-controls="collapseThree">
+                                22、我能不能稍微迟会到医院取号？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h22">
+                        <div class="panel-body">
+                            如超过医院规定的时间未取号，本次预约号源作废。所以建议用户合理安排自己的时间，按时取号就诊。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h23">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c23" aria-expanded="false" aria-controls="collapseThree">
+                                23、 医疗保险问题？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h23">
+                        <div class="panel-body">
+                            医疗保险方面的问题请咨询用户的投保单位，具体事宜依据当地医疗保险政策执行。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h24">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c24" aria-expanded="false" aria-controls="collapseThree">
+                                24、 预约识别码丢失、信息接收不完整怎办？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h24">
+                        <div class="panel-body">
+                            由于"预约成功通知邮箱信息"包括"订单详情"、"取号时间"、"取号地点"等信息，内容较多，系统将根据内容长短，自动分为1至2或3条发送至您的邮箱，收到其中的任意一条，都代表您已预约成功。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h25">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c25" aria-expanded="false" aria-controls="collapseThree">
+                                25、 预约挂号时医保卡、就诊卡、银行卡信息都是必填项吗？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h25">
+                        <div class="panel-body">
+                            预约挂号时，需要填写就诊卡、医保卡、报销类型等信息，但这些信息并非是所有医院预约挂号的必填项目。是否属于必填，可根据编辑框后面是否带红色星号识别，有则必填，没有则可以跳过，详细预约流程请参见"网站预约挂号流程"。
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="h26">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c26" aria-expanded="false" aria-controls="collapseThree">
+                                26、预约挂号统一平台可以使用哪些证件登记注册？
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c26" class="panel-collapse collapse" role="tabpanel" aria-labelledby="h26">
+                        <div class="panel-body">
+                            目前可使用身份证、军官证、护照、港澳通行证、台胞证。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 id="listbox-t2" class="text-center listbox-title">预约需知</h4>
+            <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c27" aria-expanded="true" aria-controls="collapseOne">
+                                1、预约范围
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c27" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　1.1统一平台不提供当日预约服务，用户可预约接入医院的大部分科室次日起至三个月内的就诊号源，统一平台按照科室、职称、专业不点名预约。具体预约挂号周期和号源信息，以网站公示为准。</p>
+                            <p>　　1.2 每天可预约次日号源的服务时间截止到15:00前。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c28" aria-expanded="true" aria-controls="collapseOne">
+                                2、人脸注册预约
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c28" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　2.1 统一平台网上预约挂号采取人脸实名制注册，用户首次预约必须注册就诊人的真实有效基本信息，包括采集就诊人员的脸部图像,真实姓名、有效证件号、性别、邮箱等基本信息。</p>
+                            <p>　　2.2 用户到医院取号就诊时须出示与预约登记实名信息一致的本人有效证件，同时医院会采集脸部信息进行比对，否则医院不予办理挂号业务及诊疗服务。</p>
+                            <p>　　2.4 网站注册预约须要求用户准备邮箱，"邮箱验证码验证" 是网站注册预约流程的重要环节，没有通过验证，用户无法成功注册预约，故请务必填写真实有效的邮箱号码。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c285" aria-expanded="true" aria-controls="collapseOne">
+                                3、账户信息管理
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c285" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　3.1请保证您的统一平台账户信息真实有效，如用错误信息，或虚假信息预约挂号，不仅在就诊当日影响您取号就诊，同时也会影响到您今后的预约行为。</p>
+                            <p>　　3.2注册用户如名下存在未就诊的预约号源时，无法申请修改注册信息，请先取消所有当前有效预约号源或等约成号源过期的次日后再申请修改。</p>
+                            <p>　　3.3用户如修改本人注册姓名、有效证件号、手机号，须在线提出申请，须提供用户本人手持注册时的有效证件的人证合一，以便工作人员核实信息，我们将在5个工作日内协助处理完成，并以邮箱信息形式通知到您。</p>
+                            <p>　　3.4 统一平台不支持同时修改姓名和证件号码的申请。（注：该申请等同于重新注册）</p>
+                            <p>　　3.5 如遇"无法登录"等特殊情况，用户可在线申诉。</p>
+                            <p>    3.6为保证注册用户信息安全，申请人工协助处理修改注册信息时，需要采集用户的脸部图像，请保证脸部洁净，敬请理解！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c29" aria-expanded="true" aria-controls="collapseOne">
+                                4、预约确认与就诊
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c29" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　4.1通过网站预约成功后，系统会自动下发预约成功短信及唯一的8位数字识别码到用户注册邮箱上。</p>
+                            <p>　　4.2 预约成功后，请您妥善保存"预约成功邮箱信息"，以便随时查询和取消预约信息之用，同时也是您用于取号就诊的凭证之一。</p>
+                            <p>　　4.3成功预约挂号后，系统将自动保存用户预约记录。就诊当天，您需要在医院规定的取号时间之内，前往医院指定的地点取号就诊，并缴纳医院规定的医事服务费，逾期预约自动作废。具体取号时间和取号地点请查阅系统下发的预约成功通知信息。</p>
+                            <p>　　4.4本着方便患者的原则，医院开通了自助取号或分诊台先取号后缴费服务，具体取号流程和要求以医院公示为准。如患者就诊后未缴费，将被列入欠费名单，您将无法通过统一平台进行任何形式的预约挂号和窗口挂号。</p>
+                            <p>　　4.6 取号时需要提供以下重要凭证：</p>
+                            <p>　　4.6.1 就诊当日取号时，就诊人需凭就诊人本人注册的有效证件原件、预约成功通知短信和预约识别码至医院指定的挂号窗口取号；取号时医务人员将核对就诊者的身份信息和预约记录，如信息验证不符，则医院不能提供相应的诊疗服务。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c30" aria-expanded="true" aria-controls="collapseOne">
+                                5、查询、取消预约
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c30" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　5.1 用户在医院规定的取消时限内可以取消预约号，超过退号截止时间系统将限制用户退号，一般截止时间为就诊日期的前一天下午15:00点，就诊当天不能取消当日预约号。（注：个别医院的预约取消截止时间有所不同，具体规则请关注各家医院的个性化预约须知）</p>
+                            <p>　　5.2 在医院规定的取消预约时限内，用户可登录统一平台网站的"个人中心"直接取消，退号时需凭"预约识别码"进行取消。</p>
+                            <p>　　5.3 如果您在就诊当天不能前往医院取号就诊，请提前退号，否则会因造成号源的浪费，影响其他患者的就诊而被记录爽约档案，由此会影响到您今后的预约行为，请您谅解。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c305" aria-expanded="true" aria-controls="collapseOne">
+                                6、预约限制
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c305" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　为了防止号贩子倒号行为，满足绝大多数百姓的最大利益和公平性，统一平台采取了预约挂号限制。同一患者实名（有效证件号）在同一就诊日、同一科室只能预约1次；在同一就诊日的预约总量不可超过2次；在七日内的预约总量不可超过3次;三个月内预约总量不可超过5次。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#c31" aria-expanded="true" aria-controls="collapseOne">
+                                7、黑名单用户的判定及处罚
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c31" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>注册环节：身份证号不符合规范;人脸信息与数据库保存的原始图片信息相似度差别较大。</p>
+                            <p>预约环节:同一手机号在现有预约规则下3个月内预约大于15个号源（不含15个）；</p>
+                            <p>取消环节:频繁取消，1个月内频繁取消大于15个号源（不含15个）；</p>
+                            <p>黑名单处罚规则:</p>
+                            <p><img src="images/blacklist.png" alt="黑名单处罚规则" height="" /></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 id="listbox-t3" class="text-center listbox-title">挂号流程</h4>
+            <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c32" aria-expanded="true" aria-controls="collapseOne">
+                                第一步：注册登录
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c32" class="panel-collapse collapse " role="tabpanel">
+                        <div class="panel-body">
+                            <p>登录网上预约挂号统一平台，首次预约挂号须进行在线实名人脸注册，通过注册账号登录，进入预约挂号流程。（已注册用户直接登录开始预约挂号）</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c33" aria-expanded="true" aria-controls="collapseOne">
+                                第二步：选择科室/疾病
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c33" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>您可以通过多种搜索方式找到您所要预约的科室和主治医生。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c34" aria-expanded="true" aria-controls="collapseOne">
+                                第三步：选择日期/医生
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c34" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　选择就诊日期，蓝色代表有可预约号源，点击预约；灰色代表号源已约满或停诊；白色   代表无号源，无法点击。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c35" aria-expanded="true" aria-controls="collapseOne">
+                                第四步：填写预约信息并短信验证
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c35" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　填写"就诊卡号"，"医保卡号"，选择"报销类型"；（选填）</p>
+                            <p>　　点击获取按钮，待注册邮箱接收到"邮箱验证码"后，正确填写；（必填）</p>
+                            <p>　　点击"确认提交"后预约成功，同时弹出本次预约成功的信息。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c36" aria-expanded="true" aria-controls="collapseOne">
+                                第五步：接收预约成功短信
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c36" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　用户邮箱接收到预约成功信息及唯一的预约识别码</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion3" href="#c37" aria-expanded="true" aria-controls="collapseOne">
+                                第六步：医院就诊
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="c37" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            <p>　　就诊当日，请用户在规定的时间段内，前往医院凭就诊者本人预约登记时的有效证件和预约识别码就诊。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            <div>
+                <p class="littlestep">第一步：注册登录：</p>
+                <p>登录网上预约挂号统一平台，首次预约挂号须进行在线实名人脸注册，通过注册账号登录，进入预约挂号流程。（已注册用户直接登录开始预约挂号）</p>
+                <p class="littlestep">第二步：选择科室/疾病：</p>
+                <p>您可以通过多种搜索方式找到您所要预约的科室和主治医生。</p>
+                <p class="littlestep">第三步：选择日期/医生：</p>
+                <p>　　选择就诊日期，蓝色代表有可预约号源，点击预约；灰色代表号源已约满或停诊；白色   代表无号源，无法点击。</p>
+                <p class="littlestep">第四步：填写预约信息并短信验证：</p>
+                <p>　　填写"就诊卡号"，"医保卡号"，选择"报销类型"；（选填）</p>
+                <p>　　点击获取按钮，待注册邮箱接收到"邮箱验证码"后，正确填写；（必填）</p>
+                <p>　　点击"确认提交"后预约成功，同时弹出本次预约成功的信息。</p>
+                <p class="littlestep">第五步：接收预约成功短信：</p>
+                <p>　　用户邮箱接收到预约成功信息及唯一的预约识别码</p>
+                <p class="littlestep">第六步：医院就诊：</p>
+                <p>　　就诊当日，请用户在规定的时间段内，前往医院凭就诊者本人预约登记时的有效证件和预约识别码就诊。</p>
+            </div>-->
+        </div>
+    </div>
+
+    <div id="foot" class="bg-darkblue text-white" >
+	    <h2 class="foot_h2">TempName团队 © 版权所有</h2>
+    </div>
+</body>
+</html>

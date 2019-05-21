@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>预约挂号平台</title>
+    <script src="js/JQuery.js"></script>
+    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/color.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+
+    <script src="js/bootstrap-datepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="js/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <link href="js/bootstrap-datepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+    <script src="js/search.js"></script>
+    <link href="css/search.css" rel="stylesheet" />
+    <script src="js/top.js"></script>
+</head>
+<body>
+    <div id="third" class="width-main center bg-lightgray">
+<!--        <div id="type-list">
+            <span class="text-black">医院类型&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-black">全部</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">卫生部直属医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">北京市卫生局直属医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">中国医科院所属医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">中国中医科学院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <br><br>
+            <span class="text-black">医院等级&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-black">全部</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">三级医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">二级医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">一级医院</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <br><br>
+            <span class="text-black">医院位置&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-black">全部</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">东城区</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">西城区</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">北城区</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <span><a href="#" class="a-normal text-darkgray">南城区</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        </div>-->
+
+        <div id="datebox" class="inputbox form-group">
+            <label class="control-label">选择日期：</label>
+            <div class="input-group">
+                <input id="orderdate" class="form-control" type="text" readonly/>
+                <div class="input-group-btn">
+                        <!--<button id="dateclear" type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>-->
+                        <button id="dateshow" type="button" class="btn btn-default"><span class="glyphicon glyphicon-calendar"></span></button>
+                </div>
+            </div>
+        </div>
+        <div id="timebox" class="inputbox form-group">
+            <label class="control-label">选择时间段：</label>
+            <select id="ordertime" class="form-control">
+                <option selected>上午</option>
+                <option>下午</option>
+                <option>晚上</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="forth" class="width-main center">
+<!--        <div class="hosp-list-item">
+            <div class="hosp-img">
+                <img src="images/hosp_01.jpg" alt="医院图片" />
+            </div>
+            <div id="hosp-detail">
+                <p>
+                    <a href="#" class="text-black text-bigger a-normal">中国人民解放军总医院(301医院)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="text-yellow text-small">三级甲等</span>
+                </p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 放号时间 : 08:30</p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 010-66887329</p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 北京市海淀区复兴路28号</p>
+            </div>
+            <div id="hosp_map"></div>
+            <div>
+                <button type="button" class="btn bg-yellow text-white">
+                    <span class="glyphicon glyphicon-plus-sign"></span> 现在预约
+                </button>
+            </div>
+        </div>
+        <div class="hosp-list-item">
+            <div class="hosp-img">
+                <img src="images/hosp_02.jpg" alt="医院图片" />
+            </div>
+            <div id="hosp-detail">
+                <p>
+                    <a href="#"  class="text-black text-bigger a-normal">中国人民解放军总医院(301医院)</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="text-yellow text-small">三级甲等</span>
+                </p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 放号时间 : 08:30</p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 010-66887329</p>
+                <p class="text-gray"><span class="glyphicon glyphicon-unchecked"></span> 北京市海淀区复兴路28号</p>
+            </div>
+            <div id="hosp_map"></div>
+            <div>
+                <button type="button" class="btn bg-yellow text-white">
+                    <span class="glyphicon glyphicon-plus-sign"></span> 现在预约
+                </button>
+            </div>
+        </div>-->
+        <div id="docters" class="docter-list">
+<!--            <div class="doctor-item">
+                <div class="img-box">
+                    <img src="images/doc_01.jpg" alt="医生头像" class="img-circle" />
+                </div>
+                <div id="doctor_name"><h4>贾栋</h4></div>
+                <div id="doctor_school">空军军医大学唐都医院</div>
+                <div id="doctor_major">神经外科</div>
+                <div class="doctor-item-bottom text-center">
+                    <div id="doctor_special">擅长:擅长痤疮、黄褐斑、脱发、性病的治疗。</div>
+                    <a class="btn btn-sm bg-yellow text-white" href="javascript:appoint(12)"><span class="glyphicon glyphicon-plus-sign"></span> 一键预约</a>
+                </div>
+            </div>-->
+        </div>
+
+    </div>
+
+    <div class="text-center pager">
+        <a href="#" class="a-normal text-blackgray">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="btn bg-lightblue text-white">1</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="a-normal text-blackgray">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        共<span class="page_total">1</span>页&nbsp;&nbsp;&nbsp;&nbsp;
+        到&nbsp;&nbsp;<input class="page_input" type="text" />&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="btn bg-lightblue text-white"><span class="glyphicon glyphicon-search"></span></a>
+    </div>
+
+    <div class="modal fade" id="appointmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div  class="modal-container">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="appointtitle">确认信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="step_1" class=" form-horizontal center appointform">
+                            <div class="form-group">
+                                <label class="control-label col-lg-6">科室：</label>
+                                <div class="col-lg-6">
+                                    <p class="form-control-static" id="appoint_kname"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-6">医师名：</label>
+                                <div class="col-lg-6">
+                                    <p class="form-control-static" id="appoint_dname"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-6">日期：</label>
+                                <div class="col-lg-6">
+                                    <p class="form-control-static" id="appoint_date"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-6">时间：</label>
+                                <div class="col-lg-6">
+                                    <p class="form-control-static" id="appoint_timetype"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-lg-6">剩余名额：</label>
+                                <div class="col-lg-6">
+                                    <p class="form-control-static" id="appoint_cnt">21</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="step_2" class=" form-horizontal center appointform" style="display: none;">
+                            <div class="img-container center">
+                                <img src="images/code.jpg" />
+                            </div>
+                            <div class="text-center"><h4 id="appoint_price"></h4></div>
+                        </div>
+
+                        <div id="step_3" class=" form-horizontal center appointform" style="display: none;">
+                            <h1 id="result_ok" class="text-center"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;预约成功</h1>
+                            <h1 id="result_no" class="text-center"><span class="glyphicon glyphicon-remove-circle"></span>&nbsp;&nbsp;&nbsp;&nbsp;预约失败</h1>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="appointcancel" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                        <button type="button" class="btn btn-primary" id="nextbtn">&nbsp;&nbsp;下一步&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="foot" class="bg-darkblue text-white" >
+	    <h2 class="foot_h2">TempName团队 © 版权所有</h2>
+    </div>
+</body>
+</html>

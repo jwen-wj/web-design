@@ -1,0 +1,94 @@
+// import google fonts
+@import 'font/fonts';
+
+// Material Kit
+@import 'materialkit';  // Material Kit
+@import 'morphing-search';  // Material Kit
+@import 'materialize';  // Material css
+
+/* Material Icons ============================== */
+@import 'icon/materialicons';
+
+// My variables, mixins and colors
+@import 'inc/mixins';
+@import 'inc/variables';
+
+// plugins
+@import 'plugins/waves';
+@import 'plugins/animate';
+
+/* Navbar ====================================== */
+// Sections
+@import 'components/navbar';
+@import 'components/pageloader.scss';
+@import 'components/navbar.scss';
+@import 'components/leftsidebaroverlay.scss';
+
+@import 'components/helpers.scss';
+@import 'components/customanimate.scss';
+@import 'components/demo.scss';
+@import 'components/media.scss';
+@import 'components/general.scss';
+@import 'components/dashboard.scss';
+
+@import 'components/buttons.scss';
+@import 'components/tagsinput.scss';
+@import 'components/noUISlider.scss';
+@import 'components/multiselect.scss';
+@import 'components/card.scss';
+@import 'components/infobox.scss';
+@import 'components/alerts.scss';
+@import 'components/dialogs.scss';
+@import 'components/checkboxradio.scss';
+@import 'components/switch.scss';
+@import 'components/datetimepicker.scss';
+@import 'components/bootstrapselect.scss';
+@import 'components/tooltippopovers.scss';
+@import 'components/navtabs.scss';
+@import 'components/thumbnails.scss';
+@import 'components/modals.scss';
+@import 'components/labels.scss';
+@import 'components/collapse.scss';
+@import 'components/tables.scss';
+@import 'components/panels.scss';
+@import 'components/progressbars.scss';
+@import 'components/ionrangeslider.scss';
+@import 'components/inputformgroup.scss';
+@import 'components/colorpicker.scss';
+@import 'components/dropzone.scss';
+@import 'components/breadcrumbs.scss';
+@import 'components/badgelistgroupitem.scss';
+@import 'components/pagination.scss';
+@import 'components/mediaobject.scss';
+@import 'components/formwizard.scss';
+@import 'components/waveseffect.scss';
+@import 'components/preloaders.scss';
+@import 'components/dropdownmenu.scss';
+@import 'components/bootstrapnotify.scss';
+@import 'components/jquerynestable.scss';
+@import 'components/searchresults.scss';
+@import 'components/calendar.scss';
+
+
+@import 'pages/loginpage.scss';
+@import 'pages/signuppage.scss';
+@import 'pages/forgotpasswordpage.scss';
+@import 'pages/404.scss';
+@import 'pages/500.scss';
+@import 'pages/timeline.scss';
+@import 'pages/chat.scss';
+@import 'pages/profile.scss';
+@import 'pages/doctor.scss';
+@import 'pages/patients.scss';
+@import 'pages/floating-btn.scss';
+@import 'pages/mail.scss';
+
+@import 'components/maps.scss';
+@import 'components/charts.scss';
+
+@import 'components/_searchbar.scss';
+@import 'components/jquerydatatable.scss';
+@import 'components/lightgallery.scss';
+
+@import 'browser-support/ie10.scss';
+@import 'browser-support/ie11.scss';

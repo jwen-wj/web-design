@@ -1,0 +1,83 @@
+﻿body {
+    background-color:#30373e;
+    @include transition(all .5s);
+    font-family: 'Roboto', Arial, Tahoma, sans-serif;
+}
+
+
+button,
+input,
+select,
+a {
+    outline: none !important;
+}
+
+.no-animate {
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+
+section {
+    &.content {
+        margin:55px 15px 15px 250px;
+        @include transition(.5s);
+        z-index: 9;
+        position: relative;
+        background:#f0f3f5;
+        @include border-radius(3px);
+        box-shadow:1px 5px 20px rgba(0, 0, 0, 0.09);
+               
+    }
+}
+.g-bg-cyan{ background:linear-gradient(60deg, #09b9ac, #7dd1c1); color:#fff !important;}
+.g-bg-blue{background:linear-gradient(60deg, #00adef, #0094da); color:#fff !important;}
+.g-bg-gy{background:linear-gradient(60deg, #94d23b, #fcb711); color:#fff !important;}
+.g-bg-cgreen{background:linear-gradient(60deg, #16c99f, #12a682); color:#fff !important;}
+.g-bg-blush2{ background:linear-gradient(325deg, #dd5e89, #f7bb97); color:#fff !important;}
+.g-bg-soundcloud{background:linear-gradient(60deg, #f83600, #fe8c00); color:#fff !important;}
+.g-bg-soundcloud2{background:linear-gradient( 135deg, rgba(243,71,75,.9) 0%, rgba(255,152,0,.9) 100%); color:#fff !important;}
+
+.carousel{
+    .glyphicon-chevron-right:before{
+        content:'\f2f5';
+        font-family: 'Material-Design-Iconic-Font';
+    }
+    .glyphicon-chevron-left:before{
+       content:'\f2f3';       
+       font-family: 'Material-Design-Iconic-Font'; 
+    }
+}
+.drop-custum{
+    border-bottom: 1px solid #ddd;
+    margin-top: 18px !important;
+}
+
+
+@media only screen and (max-width: 500px) {
+    section{
+        &.content{
+           margin-left:5px !important;
+           margin-right:5px;
+           padding:0;
+        }
+    }
+}
+@media only screen and (min-width: 993px){
+    .collapse.collapse-sm, .collapse.collapse-xs {
+        display: block;
+    }
+
+}

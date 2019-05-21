@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>预约挂号平台</title>
+    <script src="js/JQuery.js"></script>
+    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/color.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+    <link href="css/homepage.css" rel="stylesheet" />
+    <script src="js/homepage.js"></script>
+</head>
+<body>
+    <!--可重用代码区-->
+    <div id="top" class="bg-lightgray width-whole">
+        <div class="width-main center">
+            <div id="top-tel" class="text-darkgray pull-left">010-114/116114电话预约</div>
+            <div id="top-doc" class="text-darkgray pull-left"><a class="a-normal text-lightblue" href="doctor/sign-in.html">医生端</a> </div>
+            <div id="top-back" class="text-darkgray pull-left"><a class="a-normal text-lightblue" href="back/login.html">后台管理</a> </div>
+            <div id="top-order" class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="user.html" class="a-normal text-lightblue">我的订单</a>&nbsp;</div>
+            <div id="top-register" class="pull-right">&nbsp;<a href="register.html" class="a-normal text-lightblue">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id="top-login" class="pull-right">&nbsp;<a href="javascript:void(0)" class="a-normal text-lightblue" data-toggle="modal" data-target="#loginModal">登录</a>&nbsp;</div>
+            <div id="top-logout" class="pull-right">&nbsp;<a href="javascript:void(0)" class="a-normal text-lightblue">退出登录</a>&nbsp;</div>
+            <div id="top-welcome" class="text-darkgray pull-right">欢迎来到预约挂号平台 &nbsp;</div>
+        </div>
+    </div>
+    <div id="subtop" class="width-main center">
+    	<div class="top_left">
+    		<a href="https://www.bestdoublelin.com:8443/HosSystem/homepage.html">
+    			<img src="images/login.png">
+    			<h2 class="top_h2">基于人脸识别的智慧医疗预约挂号平台</h2>
+    		</a>
+    	</div>
+        <div id="searchbox" class="input-group pull-right">
+            <div class="input-group-btn">
+                <div class="btn-group">
+                    <button type="button" class="btn bg-yellow text-white dropdown-toggle" data-toggle="dropdown">
+                        <span id="search-btn-title">科室</span><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="search-menu-ks" href="javascript:void(0)">科室</a></li>
+                        <li><a id="search-menu-jb" href="javascript:void(0)">疾病</a></li>
+                    </ul>
+                </div>
+            </div>
+            <input id="top-search" type="text" class="form-control" />
+            <span class="input-group-btn">
+                <button id="search-btn" type="button" class="btn bg-yellow text-white">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div id="navi" class="navi bg-lightblue width-whole">
+        <div class="width-main text-white center">
+            <div class="navi">
+                <div class="navi-item text-center"><a href="homepage.html" class="a-normal text-white">首页</a></div>
+                <div class="navi-item text-center"><a href="ks.html" class="a-normal text-white">按科室挂号</a></div>
+                <div class="navi-item text-center"><a href="jb.html" class="a-normal text-white">按疾病挂号</a></div>
+                <div class="navi-item text-center"><a href="help.html" class="a-normal text-white">帮助中心</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div  class="modal-container">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="logintitle">用户登录</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginform">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">注册邮箱：</label>
+                                <div class="col-lg-9">
+                                    <input type="email" class="form-control" name="email" id="loginemail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">密码：</label>
+                                <div class="col-lg-9">
+                                    <input type="password" class="form-control" name="pwd" id="loginpwd">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="cancel" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                        <button type="button" class="btn btn-primary" id="loginbtn">&nbsp;&nbsp;登录&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------->
+
+
+    <div id="third">
+        <div id="displaybox" class="width-main center">
+            <div id="type-list-container" class="bg-darkblue text-white">
+                <div id="type-list">
+<!--                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 内科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 外科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 妇产科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 儿科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 骨外科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 眼科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 口腔科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 耳鼻咽喉头颈科</div>
+                    <div class="type-item"><span class="glyphicon glyphicon-unchecked"></span> 其他科室</div>-->
+                    <div id="type-detail">
+                        <p class="text-detail-title">内科</p>
+                        <p id="kslist" class="text-detail">
+                            <!--<a href="javascript:void(0)" class="a-normal text-detail" onclick="search(168)">妇科</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <a href="javascript:void(0)" class="a-normal text-detail" onclick="search(169)">产科</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>-->
+                        </p><br /><br />
+                        <p class="text-detail-title">内科常见疾病</p>
+                        <p id="jblist" class="text-detail">
+                            <!--<a href="#" class="a-normal text-detail" onclick="search(169)">冠心病</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                            <a href="#" class="a-normal text-detail" onclick="search(169)">高血压</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>-->
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="ad">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="images/carousel_01.png" alt="广告1">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/carousel_02.jpg" alt="广告2">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/carousel_03.png" alt="广告3">
+                            <div class="carousel-caption">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div id="hosinfo" class="bg-lightgray text-center">
+                <b id="hosinfo-title" class="text-bigger">XX大学第一医院</b>
+                <div id="hosinfo-img" class="center">
+                    <img src="images/hos.jpg" alt="医院图片" class="full" />
+                </div>
+                <div id="hosinfo-msg" class="text-blackgray">
+                    <p><span class="glyphicon glyphicon-map-marker"></span> XX大学致远园9栋</p>
+                    <p id="hosinfo-hp"><span class="glyphicon glyphicon-home"></span> <a href="https://www.bestdoublelin.com:8443/HosSystem/homepage.html" class="a-normal text-blackgray">https://www.bestdoublelin.com:8443/HosSystem/homepage.html</a></p>
+                    <p><span class="glyphicon glyphicon-earphone"></span> 010-114/116114</p>
+                </div>
+                <button id="hosinfo-btn" class="btn bg-lightblue text-white" type="button" data-toggle="modal" data-target="#mapModel">查看地图</button>
+            </div>
+        </div>
+    </div>
+    <div id="forth" class="width-main center">
+        <div class="navi bg-lightgray">
+            <div class="bg-darkblue navi-item text-white text-center">推荐专家</div>
+        </div>
+        <div id="doctors" class="docter-list">
+<!--            <div class="doctor-item">
+                <div class="doctor-img-box">
+                    <img src="images/doc_01.jpg" alt="医生头像" class="img-circle" />
+                </div>
+                <div id="doctor_name"><h4>贾栋</h4></div>
+                <div id="doctor_school">空军军医大学唐都医院</div>
+                <div id="doctor_major">神经外科</div>
+                <div class="doctor-item-bottom text-center">
+                    <div class="doctor-special">擅长:擅长痤疮、黄褐斑、脱发、性病的治疗。</div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <div class="modal fade" id="mapModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div  class="modal-container">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="maptitle">医院地图</h4>
+                    </div>
+                    <div class="modal-body">
+                        <iframe id="maparea" src="map/map.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+
+                        </iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="mapbtn" type="button" class="btn btn-primary" data-dismiss="modal">&nbsp;&nbsp;确认&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="foot" class="bg-darkblue text-white" >
+	    <h2 class="foot_h2">TempName团队 © 版权所有</h2>
+    </div>
+</body>
+</html>

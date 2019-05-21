@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <title>管理端</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" /> 
+        <meta name="author" content="" />
+        <meta name="copyright" content="" />
+        <link rel="stylesheet" href="./css/x-admin.css" media="all">
+        <style type="text/css">
+        	.p_title{
+        		margin-top:35px;
+        		height: 40px;
+        		line-height: 40px;
+        		float: left;
+        		font-size:40px;
+        		color:#4CAF50;
+        	}
+        </style>
+    </head>
+    <body>
+        <div class="layui-layout layui-layout-admin">
+            <div class="layui-header header header-demo">
+                <div class="layui-main">
+                    <a class="logo" href="./index.html">
+                   <!--<img src="images/banner2.png"></img>-->
+                   <p class="p_title">欢迎来到后台管理</p>
+                    </a>
+                    <ul class="layui-nav" lay-filter="">
+                      <li class="layui-nav-item"><img src="images/0.jpg" class="layui-circle" style="border: 2px solid #A9B7B7;" width="35px" alt=""></li>
+                      <li class="layui-nav-item">
+                        <a href="javascript:;">admin</a>
+                        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                          <dd><a href="#">个人信息</a></dd>
+                          <dd><a href="#">切换帐号</a></dd>
+                          <dd><a href="./login.html">退出</a></dd>
+                        </dl>
+                      </li>
+                      <li class="layui-nav-item x-index"><a href="../homepage.html">前台首页</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="layui-side layui-bg-black x-side">
+                <div class="layui-side-scroll">
+                    <ul class="layui-nav layui-nav-tree site-demo-nav" lay-filter="side">
+                    	<li class="layui-nav-item">
+                            <a class="javascript:;" href="javascript:;" _href="charts.html">
+                                <i class="layui-icon" style="top: 3px;">&#xe613;</i><cite>数据统计</cite>
+                            </a>
+                       </li>
+                        <!--用户管理-->
+                        <li class="layui-nav-item">
+                            <a class="javascript:;" href="javascript:;" _href="User_management.html">
+                                <i class="layui-icon" style="top: 3px;">&#xe613;</i><cite>用户管理</cite>
+                            </a>
+                        </li>
+                        <!--医生管理-->
+                        <li class="layui-nav-item">
+                            <a class="javascript:;" href="javascript:;" _href="doctor_management.html">
+                                <i class="layui-icon" style="top: 3px;">&#xe613;</i><cite>医生管理</cite>
+                            </a>
+                        </li>
+                        
+                        <!--角色管理-->
+                        <li class="layui-nav-item">
+                            <a class="javascript:;" href="javascript:;" _href="Role_management.html">
+                                <i class="layui-icon" style="top: 3px;">&#xe612;</i><cite>挂号订单管理</cite>
+                            </a>
+                        </li>
+                        
+                        <li class="layui-nav-item">
+                            <a class="javascript:;" href="javascript:;" _href="blacklist.html">
+                                <i class="layui-icon" style="top: 3px;">&#xe612;</i><cite>黑名单管理</cite>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="layui-tab layui-tab-card site-demo-title x-main" lay-filter="x-tab" lay-allowclose="true">
+                <div class="x-slide_left"></div>
+                <ul class="layui-tab-title">
+                    <li class="layui-this">
+                        数据管理
+                        <i class="layui-icon layui-unselect layui-tab-close">ဆ</i>
+                    </li>
+                </ul>
+                <div class="layui-tab-content site-demo site-demo-body">
+                    <div class="layui-tab-item layui-show">
+                        <iframe frameborder="0" src="charts.html" class="x-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="site-mobile-shade">
+            </div>
+        </div>
+        <script src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script src="./js/x-admin.js"></script>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+    </body>
+</html>

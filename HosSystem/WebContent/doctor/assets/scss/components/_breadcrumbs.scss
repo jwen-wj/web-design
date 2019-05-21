@@ -1,0 +1,72 @@
+﻿.breadcrumb {
+    @include border-radius(0);
+    background-color: transparent;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+    li {
+        a {
+            color: #444;
+            text-decoration: none;
+
+            .material-icons {
+                font-size: 18px;
+                position: relative;
+                top:0px;
+            }
+        }
+
+        .material-icons {
+            font-size: 18px;
+            position: relative;
+            top: 4px;
+        }
+    }
+
+    > li + li:before {
+        content: '>\00a0';
+    }
+}
+
+@each $key, $val in $colors {
+    .breadcrumb-col-#{$key} {
+        li {
+            a {
+                color: $val !important;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .breadcrumb-bg-#{$key} {
+        background-color: $val !important;
+
+        li {
+            a {
+                color: #fff;
+                font-weight: bold;
+
+                .material-icons {
+                    padding-bottom: 8px;
+                }
+            }
+
+            color: #fff !important;
+        }
+
+        li + li:before {
+            color: #fff;
+        }
+    }
+}
+.breadcrumb.g-bg-cgreen,
+.breadcrumb.g-bg-blush2,
+.breadcrumb.g-bg-gy,
+.breadcrumb.g-bg-soundcloud2{
+    li{ color:#fff;
+        a{
+            color:#fff;
+        }
+    }
+}
+ 
